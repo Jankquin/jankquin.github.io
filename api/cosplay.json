@@ -8,7 +8,7 @@
         "Artist"       : "Kuukow",
         "Tags"         : ["Drama"],
         "Uploaded"     : "2022-12-19",
-        "Released"     : "2022-12-19",
+        "Released"     : "2022-12-19"
     },
     {
         "Type"         : "cosplay",
@@ -19,7 +19,7 @@
         "Artist"       : "Xiaoding",
         "Tags"         : ["Drama","Harem"],
         "Uploaded"     : "2022-12-13",
-        "Released"     : "2022-12-13",
+        "Released"     : "2022-12-13"
     },
     {
         "Type"         : "cosplay",
@@ -30,7 +30,7 @@
         "Artist"       : "Nagesa",
         "Tags"         : ["Harem","Romance"],
         "Uploaded"     : "2022-12-12",
-        "Released"     : "2022-12-12",
+        "Released"     : "2022-12-12"
     },
     {
         "Type"         : "cosplay",
@@ -41,6 +41,6 @@
         "Artist"       : "AngelChan",
         "Tags"         : ["Drama","Harem","Romance"],
         "Uploaded"     : "2022-12-11",
-        "Released"     : "2022-12-11",
+        "Released"     : "2022-12-11"
     }
 ]
