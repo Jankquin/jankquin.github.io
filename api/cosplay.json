@@ -1,46 +1,44 @@
 [
     {
-        "Type"         : "cosplay",
-        "Title"        : "Kuukow",
-        "Slug"         : "Kuukow",
-        "Image"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
-        "Images"       : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
-        "Artist"       : "Kuukow",
-        "Tags"         : ["Drama"],
-        "Uploaded"     : "2022-12-19",
-        "Released"     : "2022-12-19"
+        "Type"  : "cosplay",
+        "Artist": "Kuukow",
+        "Post"  : [
+            {
+                "Title"        : "Kuukow",
+                "Cover"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
+                "Image"        : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
+                "Tag"          : ["Vagina","Loli"],
+                "Uploaded"     : "2022-12-19",
+                "Released"     : "2022-12-19"
+            }
+        ]
     },
     {
-        "Type"         : "cosplay",
-        "Title"        : "Xiaoding",
-        "Slug"         : "Xiaoding",
-        "Image"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
-        "Images"       : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
-        "Artist"       : "Xiaoding",
-        "Tags"         : ["Drama","Harem"],
-        "Uploaded"     : "2022-12-13",
-        "Released"     : "2022-12-13"
+        "Type"  : "cosplay",
+        "Artist": "Xiaoding",
+        "Post"  : [
+            {
+                "Title"        : "Xiaoding",
+                "Cover"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
+                "Image"        : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
+                "Tag"          : ["Nude","Glasses"],
+                "Uploaded"     : "2022-12-18",
+                "Released"     : "2022-12-18"
+            }
+        ]
     },
     {
-        "Type"         : "cosplay",
-        "Title"        : "Nagesa",
-        "Slug"         : "Nagesa",
-        "Image"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
-        "Images"       : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
-        "Artist"       : "Nagesa",
-        "Tags"         : ["Harem","Romance"],
-        "Uploaded"     : "2022-12-12",
-        "Released"     : "2022-12-12"
-    },
-    {
-        "Type"         : "cosplay",
-        "Title"        : "AngelChan",
-        "Slug"         : "AngelChan",
-        "Image"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
-        "Images"       : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
-        "Artist"       : "AngelChan",
-        "Tags"         : ["Drama","Harem","Romance"],
-        "Uploaded"     : "2022-12-11",
-        "Released"     : "2022-12-11"
+        "Type"  : "cosplay",
+        "Artist": "Nagesa",
+        "Post"  : [
+            {
+                "Title"        : "Nagesa",
+                "Cover"        : "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225",
+                "Image"        : ["https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225", "https://i1.wp.com/92.87.6.124/wp-content/uploads/2022/01/Screenshot_11.png?resize=165,225"],
+                "Tag"          : ["Adult","Loli"],
+                "Uploaded"     : "2022-12-17",
+                "Released"     : "2022-12-17"
+            }
+        ]
     }
 ]
