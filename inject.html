@@ -10,7 +10,7 @@
 
     <!-- Pixiv x Cloudinary -->
     <script>
-        const GetElementArtist  = document.querySelector('.sc-d98f2c-0.sc-cwiweh.ckOiyJ').textContent;
+        const GetElementArtist  = document.querySelector('.sc-d98f2c-0.sc-cwiweh').textContent;
         const GetElementImage   = document.querySelectorAll('.sc-1qpw8k9-1.jOmqKq');
         const GetElementTitle   = document.querySelector('.sc-1u8nu73-3.lfwBiP').textContent;
         const GetElementTag     = document.querySelectorAll("ul.gZfuPH a");
@@ -21,13 +21,14 @@
         const ArrayImage        = Array.from(GetElementImage, img => img.getAttribute('src').split('/').pop().replace('.jpg', ''));
         
         const FilterTag         = ArrayTag.filter((link) => !link.classList.contains("gtm-new-work-tag-event-click"));
-        const FilterDate        = GetData.toISOString().slice(0, 10);
+        const FilterDate        = GetData.toISOString();
         
-        const DataSlug          = btoa(unescape(encodeURIComponent(GetElementTitle)));;
+        const DataSlug          = btoa(unescape(encodeURIComponent(GetElementTitle)));
         const DataTag           = FilterTag.map((link) => link.textContent);
         const DataCover         = `https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Nsfw/${GetElementArtist}/${ArrayImage[0]}.webp`;
         const DataImage         = Array.from(ArrayImage, doc => `https://res.cloudinary.com/dvdute5j8/image/upload/Nsfw/${GetElementArtist}/${doc}.webp`)
         
+
 
         const NewElement = `
             <div style="padding:10px;">
@@ -39,11 +40,11 @@
                         "Post"   : [
                             {
                                 "Title"     : "${GetElementTitle}",
-                                "Slug"      : "${DataSlug}",
+                                "Slug"      : "${btoa(unescape(encodeURIComponent(FilterDate)))}",
                                 "Tag"       : [${DataTag.map(doc => `"${doc}"` )}],
                                 "Cover"     : "${DataCover}",
                                 "Image"     : [${DataImage.map(doc => `"${doc}"` )}],
-                                "Uploaded"  : "${FilterDate}"
+                                "Uploaded"  : "${FilterDate.slice(0, 10)}"
                             }
                         ]
                     }
