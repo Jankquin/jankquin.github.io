@@ -8,7 +8,19 @@
 <body>
     
 
-    <!-- Pixiv x Cloudinary -->
+    <!-- Pixiv x Cloudinary Original Size -->
+    <script>
+        const GetElementImages = document.querySelectorAll('.gtm-expand-full-size-illust');
+
+        GetElementImages.forEach(link => {
+            const img       = link.querySelector('img');
+            const newSrc    = link.getAttribute('href');
+            img.setAttribute('src', newSrc);
+        });
+
+    </script>
+
+    <!-- Pixiv x Cloudinary Thumbnail -->
     <script>
         const GetElementArtist  = document.querySelector('.sc-d98f2c-0.sc-cwiweh').textContent;
         const GetElementImage   = document.querySelectorAll('.sc-1qpw8k9-1.jOmqKq');
@@ -27,7 +39,6 @@
         const DataTag           = FilterTag.map((link) => link.textContent);
         const DataCover         = `https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Nsfw/${GetElementArtist}/${ArrayImage[0]}.webp`;
         const DataImage         = Array.from(ArrayImage, doc => `https://res.cloudinary.com/dvdute5j8/image/upload/Nsfw/${GetElementArtist}/${doc}.webp`)
-        
 
    
         const NewElement = `
@@ -54,7 +65,6 @@
 
         GetElementCode.innerHTML += NewElement;
     </script>
-
 
 </body>
 </html>
