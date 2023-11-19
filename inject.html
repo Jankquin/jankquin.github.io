@@ -66,5 +66,37 @@
         GetElementCode.innerHTML += NewElement;
     </script>
 
+
+    <script>
+        var getSource   = document.querySelector(".fp-player video").src;
+        var getTitle    = document.querySelector('.heading__title').textContent;
+        var getSeries   = document.querySelector('.trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary').textContent;
+        var getTags     = document.querySelectorAll('.trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary');
+        var allowedTags = ["360p","480p","720p","1080p"];
+
+        var dataTags = [];
+
+        getTags.forEach(function (element) {
+            if (!allowedTags.includes(element.textContent)) {
+                dataTags.push(element.textContent);
+            }
+        });
+
+        document.querySelector(".trailer__row .comments").innerHTML =
+            `
+            <div>
+                <textarea style="height:250px; width:100%; font-size:7pt">
+                    {
+                        "Source"       : "${getSource}",
+                        "Title"        : "${getTitle}",
+                        "Series"       : "${getSeries}",
+                        "Tags"         : ${JSON.stringify(dataTags)},
+                        "Released"     : ${JSON.stringify(dataTags.find(item => /^\d{4}$/.test(item)))},
+                        "Uploaded"     : "${new Date().toISOString().slice(0, 10)}"
+                    }
+                </textarea>
+            </div>
+        `;
+    </script>
 </body>
 </html>
