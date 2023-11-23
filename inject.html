@@ -6,8 +6,7 @@
     <title>Inject Code Developer Mode</title>
 </head>
 <body>
-    
-
+  
     <!-- Pixiv x Cloudinary Original Size -->
     <script>
         const GetElementImages = document.querySelectorAll('.gtm-expand-full-size-illust');
@@ -66,19 +65,20 @@
         GetElementCode.innerHTML += NewElement;
     </script>
 
-
+    <!-- Hentaibar -->
     <script>
-        var getSource   = document.querySelector(".fp-player video").src;
+        var getUrl      = window.location.href;
         var getTitle    = document.querySelector('.heading__title').textContent;
+        var getSlug     = getUrl.split('/');
         var getSeries   = document.querySelector('.trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary').textContent;
         var getTags     = document.querySelectorAll('.trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary');
-        var allowedTags = ["360p","480p","720p","1080p"];
+        var blockTags   = ["action","adventure","ahegao","anal","bdsm","big boobs","blowjob","bondage","boobjob","boy love","censored","cgi","comedy","cosplay","creampie","dark skin","drama","ecchi","facial","fantasy","femdom","footjob","futanari","gangbang","glasses","handjob","harem","incest","lactation","large breasts","loli","mastrubation","milf","mind break","mind control","nekomimi","ntr","orgy","public sex","plot","point of view","pregnant","rape","reverse rape","rimjob","romance","scat","school girl","squirting","swimsuit","teacher","tentacles","trap","tsundere","ugly bastard","uncensored","urination","vanilla","virgin","watersports","yaoi","yuri"]
 
-        var dataTags = [];
-
-        getTags.forEach(function (element) {
-            if (!allowedTags.includes(element.textContent)) {
-                dataTags.push(element.textContent);
+        var dataTags    = [];
+    
+        getTags.forEach(function (doc) {
+            if (blockTags.includes(doc.textContent)) {
+                dataTags.push(doc.textContent);
             }
         });
 
@@ -87,16 +87,68 @@
             <div>
                 <textarea style="height:250px; width:100%; font-size:7pt">
                     {
-                        "Source"       : "${getSource}",
+                        "Url"          : "${getUrl}",
                         "Title"        : "${getTitle}",
+                        "Slug"         : "${getSlug[getSlug.length - 2]}",
                         "Series"       : "${getSeries}",
                         "Tags"         : ${JSON.stringify(dataTags)},
                         "Released"     : ${JSON.stringify(dataTags.find(item => /^\d{4}$/.test(item)))},
                         "Uploaded"     : "${new Date().toISOString().slice(0, 10)}"
-                    }
+                    },
                 </textarea>
             </div>
         `;
     </script>
+
+    <!-- Hanime x Cloudinary -->
+    <script>
+        var getHanime       = window.location.href;
+        var getCover        = document.querySelector('.clearfix .hvpi-cover-container img').src.replace('.png', '').replace('.PNG', '').replace('.jpg', '').replace('.jpeg', '').split('/');
+        var getTitle        = document.querySelector('.tv-title').textContent;
+        var getSlug         = getHanime.split('/');
+        var getBrand        = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[0].textContent;
+        var getRelease      = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[2].textContent;
+        var getUpload       = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[3].textContent;
+        var getAlternative  = document.querySelectorAll('.hvpimbc-item h2 .grey--text');
+        var getTags         = document.querySelectorAll('.hvpi-summary .hvpis-text a');
+        var getDescription  = document.querySelectorAll('.hvpi-summary .hvpis-text .hvpist-description p');
+
+        var dataAlternative = [];
+        var dataTags        = [];
+        var dataDescription = [];
+    
+        getAlternative.forEach(function (doc) {
+            dataAlternative.push(doc.textContent);
+        });
+        
+        getTags.forEach(function (doc) {
+            dataTags.push(doc.textContent);
+        });
+        
+        getDescription.forEach(function (doc) {
+            dataDescription.push(doc.textContent);
+        });
+
+
+        document.querySelector(".htv-video-page-info .hvpi-summary .wrap").innerHTML =
+        `
+        <textarea style="height:250px; width:100%; font-size:10pt">
+            {
+                "Hentaibar"    : "",
+                "Hanime"       : "${getHanime}",
+                "Cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${getCover[getCover.length - 1]}.webp",
+                "Title"        : "${getTitle}",
+                "Slug"         : "${getSlug[getSlug.length - 1]}",
+                "Brand"        : "${getBrand}",
+                "Release"      : "${getRelease}",
+                "Upload"       : "${getUpload}",
+                "Alternative"  : [${dataAlternative.map(doc => `"${doc}"` )}],
+                "Tags"         : [${dataTags.map(doc => `"${doc}"` )}],
+                "Description"  : [${dataDescription.map(doc => `"${doc}"` )}]
+            },
+        </textarea>      
+        `;
+    </script>
+
 </body>
 </html>
