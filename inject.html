@@ -103,6 +103,7 @@
     <!-- Hanime x Cloudinary -->
     <script>
         var getHanime       = window.location.href;
+        var getUrlCover     = document.querySelector('.clearfix .hvpi-cover-container img').src;
         var getCover        = document.querySelector('.clearfix .hvpi-cover-container img').src.replace('.png', '').replace('.PNG', '').replace('.jpg', '').replace('.jpeg', '').split('/');
         var getTitle        = document.querySelector('.tv-title').textContent;
         var getSlug         = getHanime.split('/');
@@ -129,6 +130,7 @@
             dataDescription.push(doc.textContent);
         });
 
+        window.open(getUrlCover, '_blank')
 
         document.querySelector(".htv-video-page-info .hvpi-summary .wrap").innerHTML =
         `
@@ -138,13 +140,13 @@
                 "Hanime"       : "${getHanime}",
                 "Cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${getCover[getCover.length - 1]}.webp",
                 "Title"        : "${getTitle}",
-                "Slug"         : "${getSlug[getSlug.length - 1]}",
-                "Brand"        : "${getBrand}",
-                "Release"      : "${getRelease}",
-                "Upload"       : "${getUpload}",
                 "Alternative"  : [${dataAlternative.map(doc => `"${doc}"` )}],
+                "Slug"         : "${getSlug[getSlug.length - 1]}",
+                "Description"  : "${dataDescription.join(', ').replace(/\u2019/g, "'")}",
+                "Brand"        : "${getBrand}",
                 "Tags"         : [${dataTags.map(doc => `"${doc}"` )}],
-                "Description"  : [${dataDescription.map(doc => `"${doc}"` )}]
+                "Release"      : "${getRelease}",
+                "Upload"       : "${getUpload}"
             },
         </textarea>      
         `;
