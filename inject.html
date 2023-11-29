@@ -100,57 +100,146 @@
         `;
     </script>
 
+    <script>
+        var tagImage = document.querySelectorAll('#readerarea .ts-main-image')
+        
+        var arrayImage = [];
+        
+        tagImage.forEach(function (doc) {
+            arrayImage.push(doc.src);
+        });
+
+        console.log(arrayImage)
+    </script>
+
     <!-- Hanime x Cloudinary -->
     <script>
-        var getHanime       = window.location.href;
-        var getUrlCover     = document.querySelector('.clearfix .hvpi-cover-container img').src;
-        var getCover        = document.querySelector('.clearfix .hvpi-cover-container img').src.replace('.png', '').replace('.PNG', '').replace('.jpg', '').replace('.jpeg', '').split('/');
-        var getTitle        = document.querySelector('.tv-title').textContent;
-        var getSlug         = getHanime.split('/');
-        var getBrand        = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[0].textContent;
-        var getRelease      = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[2].textContent;
-        var getUpload       = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[3].textContent;
-        var getAlternative  = document.querySelectorAll('.hvpimbc-item h2 .grey--text');
-        var getTags         = document.querySelectorAll('.hvpi-summary .hvpis-text a');
-        var getDescription  = document.querySelectorAll('.hvpi-summary .hvpis-text .hvpist-description p');
+        var tagHanime       = window.location.href;
+        var tagUrlCover     = document.querySelector('.clearfix .hvpi-cover-container img').src;
+        var tagCover        = document.querySelector('.clearfix .hvpi-cover-container img').src.replace('.png', '').replace('.PNG', '').replace('.jpg', '').replace('.jpeg', '').split('/');
+        var tagTitle        = document.querySelector('.tv-title').textContent;
+        var tagSlug         = tagHanime.split('/');
+        var tagBrand        = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[0].textContent;
+        var tagRelease      = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[2].textContent;
+        var tagUpload       = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[3].textContent;
+        var tagAlternative  = document.querySelectorAll('.hvpimbc-item h2 .grey--text');
+        var tagTags         = document.querySelectorAll('.hvpi-summary .hvpis-text a');
+        var tagDescription  = document.querySelectorAll('.hvpi-summary .hvpis-text .hvpist-description p');
 
-        var dataAlternative = [];
-        var dataTags        = [];
-        var dataDescription = [];
+        var getReleaseDate  = new Date(tagRelease);
+        var getUploadDate   = new Date(tagUpload);
+
+        var getReleaseYear  = getReleaseDate.getFullYear();
+        var getReleaseMonth = String(getReleaseDate.getMonth() + 1).padStart(2, '0');
+        var getReleaseDay   = String(getReleaseDate.getDate()).padStart(2, '0');
+        
+        var getUploadYear  = getUploadDate.getFullYear();
+        var getUploadMonth = String(getUploadDate.getMonth() + 1).padStart(2, '0');
+        var getUploadDay   = String(getUploadDate.getDate()).padStart(2, '0');
+
+        var arrayAlternative = [];
+        var arrayTags        = [];
+        var arrayDescription = [];
     
-        getAlternative.forEach(function (doc) {
-            dataAlternative.push(doc.textContent);
+        tagAlternative.forEach(function (doc) {
+            arrayAlternative.push(doc.textContent);
         });
         
-        getTags.forEach(function (doc) {
-            dataTags.push(doc.textContent);
+        tagTags.forEach(function (doc) {
+            arrayTags.push(doc.textContent);
         });
         
-        getDescription.forEach(function (doc) {
-            dataDescription.push(doc.textContent);
+        tagDescription.forEach(function (doc) {
+            arrayDescription.push(doc.textContent);
         });
 
-        window.open(getUrlCover, '_blank')
+        window.open(tagUrlCover, '_blank')
 
         document.querySelector(".htv-video-page-info .hvpi-summary .wrap").innerHTML =
         `
         <textarea style="height:250px; width:100%; font-size:10pt">
             {
-                "Hentaibar"    : "",
-                "Hanime"       : "${getHanime}",
-                "Cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${getCover[getCover.length - 1]}.webp",
-                "Title"        : "${getTitle}",
-                "Alternative"  : [${dataAlternative.map(doc => `"${doc}"` )}],
-                "Slug"         : "${getSlug[getSlug.length - 1]}",
-                "Description"  : "${dataDescription.join(', ').replace(/\u2019/g, "'")}",
-                "Brand"        : "${getBrand}",
-                "Tags"         : [${dataTags.map(doc => `"${doc}"` )}],
-                "Release"      : "${getRelease}",
-                "Upload"       : "${getUpload}"
+                "hentaibar"    : "",
+                "hanime"       : "${tagHanime}",
+                "cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${tagCover[tagCover.length - 1]}.webp",
+                "title"        : "${tagTitle}",
+                "alternative"  : [${arrayAlternative.map(doc => `"${doc}"` )}],
+                "slug"         : "${tagSlug[tagSlug.length - 1]}",
+                "description"  : "${arrayDescription.join(', ').replace(/['"]/g, "'")}",
+                "brand"        : "${tagBrand}",
+                "tags"         : [${arrayTags.map(doc => `"${doc}"` )}],
+                "release"      : "${getReleaseYear}-${getReleaseMonth}-${getReleaseDay}",
+                "upload"       : "${getUploadYear}-${getUploadMonth}-${getUploadDay}"
             },
         </textarea>      
         `;
     </script>
 
+
+    <script>
+        {	
+            const Image     = document.getElementsByClassName("hvpi-cover")[0].getAttribute('src')
+            const Title     = document.getElementsByClassName("tv-title")[0].textContent
+            const Brand     = document.getElementsByClassName("hvpimbc-text")[0].textContent
+            const Released  = document.getElementsByClassName("hvpimbc-text")[2].textContent
+
+            const Genre     = document.getElementsByClassName("hvpis-text")[0];
+            const GenreCh   = Genre.getElementsByClassName("btn--router");
+            const Length    = GenreCh.length;
+            
+            const GetMonth  = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const GetDate   = new Date();
+
+            for(var i=0; i < Length; i++ ){
+                const GetGenre = Genre.getElementsByClassName("btn__content")[i].textContent;
+
+                BulkGenre.push(GetGenre)  
+            }
+
+            Bulk.push(
+                {
+                    "Backup"       : "https://hentaibar.com/videos/2863/ova-succubus-yondara-gibo-ga-kita-episode-2-english-subbed/",
+                    "Embed"        : "https://dood.re/e/7nv7dbfqswax",
+                    "Download_Url" : "https://dood.re/d/7nv7dbfqswax",
+                    "Shortlink"    : "https://ouo.io/MqUXDC3",
+                    
+                    "Type"         : "hentai",
+                    "Title"        : Title,
+                    "Slug"         : Title.toString().toLowerCase().replace(/^-+/, '').replace(/-+$/, '').replace(/\s+/g, '-').replace(/\-\-+/g, '-').replace(/[^\w\-]+/g, ''),
+                    "Image"        : `${Title.toString().toLowerCase().replace(/^-+/, '').replace(/-+$/, '').replace(/\s+/g, '-').replace(/\-\-+/g, '-').replace(/[^\w\-]+/g, '')}.webp`,
+                    "Brand"        : Brand,
+                    "Tags"         : BulkGenre,
+                    "Released"     : Released,
+                    "Uploaded"     : `${GetMonth[GetDate.getMonth()]} ${GetDate.getDate()}, ${GetDate.getFullYear()}`,
+                    "Share"        : false,
+                }
+            )
+
+            const inn  = document.getElementsByClassName("htv-video-page-action-bar")[0]
+            inn.getElementsByClassName("menu")[0].innerHTML = 
+            `
+            <div style="padding:10px; background:#00aeef; position: fixed; top: 0px; left: 0px; z-index: 99999;">
+            <pre>
+            {
+                "Backup"       : "${Bulk[0].Backup}",
+                "Embed"        : "${Bulk[0].Embed}",
+                "Download_Url" : "${Bulk[0].Download_Url}",
+                "Shortlink"    : "${Bulk[0].Shortlink}",
+                "Type"         : "${Bulk[0].Type}",
+                "Title"        : "${Bulk[0].Title}",
+                "Slug"         : "${Bulk[0].Slug}",
+                "Image"        : "${Bulk[0].Image}",
+                "Brand"        : "${Bulk[0].Brand}",
+                "Tags"         : [${Bulk[0].Tags.map(doc => `"${doc}"` )}],
+                "Released"     : "${Bulk[0].Released.replace(',', '')}",
+                "Uploaded"     : "${Bulk[0].Uploaded.replace(',', '')}",
+                "Share"        : ${Bulk[0].Share}
+            },
+            <pre>    
+            </div>
+            `;
+        }
+
+    </script>
 </body>
 </html>
