@@ -100,18 +100,6 @@
         `;
     </script>
 
-    <script>
-        var tagImage = document.querySelectorAll('#readerarea .ts-main-image')
-        
-        var arrayImage = [];
-        
-        tagImage.forEach(function (doc) {
-            arrayImage.push(doc.src);
-        });
-
-        console.log(arrayImage)
-    </script>
-
     <!-- Hanime x Cloudinary -->
     <script>
         var tagHanime       = window.location.href;
@@ -155,7 +143,7 @@
 
         window.open(tagUrlCover, '_blank')
 
-        document.querySelector(".htv-video-page-info .hvpi-summary .wrap").innerHTML =
+        document.querySelector(".htv-video-page-info .hvpi-var .wrap").innerHTML =
         `
         <textarea style="height:250px; width:100%; font-size:10pt">
             {
@@ -175,72 +163,80 @@
         `;
     </script>
 
-
-
+    <!-- Manhwa18 Info-->
     <script>
-        {	
-            const Image     = document.getElementsByClassName("hvpi-cover")[0].getAttribute('src')
-            const Title     = document.getElementsByClassName("tv-title")[0].textContent
-            const Brand     = document.getElementsByClassName("hvpimbc-text")[0].textContent
-            const Released  = document.getElementsByClassName("hvpimbc-text")[2].textContent
-
-            const Genre     = document.getElementsByClassName("hvpis-text")[0];
-            const GenreCh   = Genre.getElementsByClassName("btn--router");
-            const Length    = GenreCh.length;
-            
-            const GetMonth  = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            const GetDate   = new Date();
-
-            for(var i=0; i < Length; i++ ){
-                const GetGenre = Genre.getElementsByClassName("btn__content")[i].textContent;
-
-                BulkGenre.push(GetGenre)  
-            }
-
-            Bulk.push(
-                {
-                    "Backup"       : "https://hentaibar.com/videos/2863/ova-succubus-yondara-gibo-ga-kita-episode-2-english-subbed/",
-                    "Embed"        : "https://dood.re/e/7nv7dbfqswax",
-                    "Download_Url" : "https://dood.re/d/7nv7dbfqswax",
-                    "Shortlink"    : "https://ouo.io/MqUXDC3",
-                    
-                    "Type"         : "hentai",
-                    "Title"        : Title,
-                    "Slug"         : Title.toString().toLowerCase().replace(/^-+/, '').replace(/-+$/, '').replace(/\s+/g, '-').replace(/\-\-+/g, '-').replace(/[^\w\-]+/g, ''),
-                    "Image"        : `${Title.toString().toLowerCase().replace(/^-+/, '').replace(/-+$/, '').replace(/\s+/g, '-').replace(/\-\-+/g, '-').replace(/[^\w\-]+/g, '')}.webp`,
-                    "Brand"        : Brand,
-                    "Tags"         : BulkGenre,
-                    "Released"     : Released,
-                    "Uploaded"     : `${GetMonth[GetDate.getMonth()]} ${GetDate.getDate()}, ${GetDate.getFullYear()}`,
-                    "Share"        : false,
-                }
-            )
-
-            const inn  = document.getElementsByClassName("htv-video-page-action-bar")[0]
-            inn.getElementsByClassName("menu")[0].innerHTML = 
-            `
-            <div style="padding:10px; background:#00aeef; position: fixed; top: 0px; left: 0px; z-index: 99999;">
-            <pre>
-            {
-                "Backup"       : "${Bulk[0].Backup}",
-                "Embed"        : "${Bulk[0].Embed}",
-                "Download_Url" : "${Bulk[0].Download_Url}",
-                "Shortlink"    : "${Bulk[0].Shortlink}",
-                "Type"         : "${Bulk[0].Type}",
-                "Title"        : "${Bulk[0].Title}",
-                "Slug"         : "${Bulk[0].Slug}",
-                "Image"        : "${Bulk[0].Image}",
-                "Brand"        : "${Bulk[0].Brand}",
-                "Tags"         : [${Bulk[0].Tags.map(doc => `"${doc}"` )}],
-                "Released"     : "${Bulk[0].Released.replace(',', '')}",
-                "Uploaded"     : "${Bulk[0].Uploaded.replace(',', '')}",
-                "Share"        : ${Bulk[0].Share}
-            },
-            <pre>    
-            </div>
-            `;
+        var getManhwa1      = window.location.href;
+        var getCover1       = document.querySelector('.a6-ratio .img-in-ratio');
+        var getCover2       = window.getComputedStyle(getCover1).getPropertyValue('background-image');
+        var getCover3       = getCover2.match(/url\("(.+)"\)/)[1];
+        var getTitle1       = document.querySelector('.series-name a').textContent;
+        var getSlug1        = document.querySelector('.series-name a').getAttribute('href').split('/').filter(segment => segment !== '').pop();
+        var getTags1        = document.querySelectorAll('.series-information .info-item')[2].querySelectorAll('.info-value a');
+        var getAuthor1      = document.querySelectorAll('.series-information .info-item')[3].querySelector('.info-value a').textContent;
+        var getStatus1      = document.querySelectorAll('.series-information .info-item')[4].querySelector('.info-value a').textContent;
+        var getDescription1 = document.querySelectorAll('.series-summary .summary-content p');
+        var getPosted1      = document.querySelectorAll('.card-body .list-chapters a .chapter-time');
+        
+        var getTags2        = [];
+        var getDescription2 = [];
+        var getPosted2      = [];
+        
+        getTags1.forEach((doc) => {
+            getTags2.push(doc.textContent.replace(/\s/g, '').toLocaleLowerCase());
+        });
+        
+        getDescription1.forEach((doc) => {
+            getDescription2.push(doc.textContent);
+        });
+        
+        if (getPosted1.length > 0) {
+            const lastPost = getPosted1[getPosted1.length - 1].textContent;
+            const match = lastPost.match(/\b\d{2}\/\d{2}\/\d{4}\b/)
+            const date = match ? match[0] : null;
+            getPosted2.push(date)
         }
+        
+        document.querySelector(".bottom-part .row .col-12 .statistic-list").innerHTML =
+        `
+        <textarea style="height:350px; width:100%; font-size:10pt">
+            {
+                "type"         : "manhwa",
+                "manhwa"       : "${getManhwa1}",
+                "cover"        : "${getCover3}",
+                "title"        : "${getTitle1}",
+                "slug"         : "${getSlug1}",
+                "description"  : "${getDescription2.join(', ').replace(/(\n|’|")/g, "'")}",
+                "author"       : "${getAuthor1}",
+                "tags"         : [${getTags2.map(doc => `"${doc}"`)}],
+                "posted"       : "${getPosted2}",
+                "chapter"      : [
 
-    </script>
+                ]
+            },
+        </textarea>      
+        `;
+    </script> 
+
+    <!-- Manhwa18 Chapter-->
+    <script>
+        var getImage1       = document.querySelectorAll('#chapter-content img');
+
+        var getImage2       = [];
+        
+        getImage1.forEach((doc) => {
+            getImage2.push(doc.src);
+        });
+        
+        document.querySelector(".container .text-center").innerHTML =
+        `
+        <textarea style="height:350px; width:100%; font-size:10pt">
+            {
+                "chapter"      : "",
+                "uploaded"     : "${new Date().toISOString().slice(0, 10)}",
+                "images"       : [${getImage2.map(doc => `"${doc}"`)}]
+            },
+        </textarea>      
+        `;
+    </script> 
 </body>
 </html>
