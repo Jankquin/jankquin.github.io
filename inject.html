@@ -100,6 +100,7 @@
         `;
     </script>
 
+
     <!-- Hanime x Cloudinary -->
     <script>
         var tagHanime       = window.location.href;
@@ -113,9 +114,16 @@
         var tagAlternative  = document.querySelectorAll('.hvpimbc-item h2 .grey--text');
         var tagTags         = document.querySelectorAll('.hvpi-summary .hvpis-text a');
         var tagDescription  = document.querySelectorAll('.hvpi-summary .hvpis-text .hvpist-description');
+        var tagSeries       = document.querySelectorAll('#related_content .rc-section .rcs-title strong');
 
         var getReleaseDate  = new Date(tagRelease);
         var getUploadDate   = new Date(tagUpload);
+
+        if (tagSeries.length > 0) {
+            var getSeries = tagSeries[0].textContent;
+        } else {
+            var getSeries = '';
+        }
 
         var getReleaseYear  = getReleaseDate.getFullYear();
         var getReleaseMonth = String(getReleaseDate.getMonth() + 1).padStart(2, '0');
@@ -143,21 +151,23 @@
 
         window.open(tagUrlCover, '_blank')
 
-        document.querySelector(".htv-video-page-info .hvpi-var .wrap").innerHTML =
+        document.querySelector(".htv-video-page-info .hvpi-summary .wrap").innerHTML =
         `
         <textarea style="height:250px; width:100%; font-size:10pt">
             {
+                "type"         : "hentai",
                 "hentaibar"    : "",
                 "hanime"       : "${tagHanime}",
                 "cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${tagCover[tagCover.length - 1]}.webp",
                 "title"        : "${tagTitle}",
-                "alternative"  : [${arrayAlternative.map(doc => `"${doc}"` )}],
                 "slug"         : "${tagSlug[tagSlug.length - 1]}",
+                "series"       : "${getSeries}",
                 "description"  : "${arrayDescription.join(', ').replace(/(\n|’|")/g, "'")}",
                 "brand"        : "${tagBrand}",
+                "alternative"  : [${arrayAlternative.map(doc => `"${doc}"` )}],
                 "tags"         : [${arrayTags.map(doc => `"${doc}"` )}],
-                "release"      : "${getReleaseYear}-${getReleaseMonth}-${getReleaseDay}",
-                "upload"       : "${getUploadYear}-${getUploadMonth}-${getUploadDay}"
+                "release"      : ["${getReleaseYear}-${getReleaseMonth}-${getReleaseDay}","${tagRelease}"],
+                "upload"       : ["${getUploadYear}-${getUploadMonth}-${getUploadDay}","${tagUpload}"]
             },
         </textarea>      
         `;
