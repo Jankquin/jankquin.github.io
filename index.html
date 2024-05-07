@@ -4,12 +4,79 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Api</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
 
-    <body>
-	    hello world
+    <body class="bg-base-300 h-screen px-3 py-5">
 
-        <img src="https://static.hentai.direct/hentai/42510/1/ccdn0001.jpg" alt="hentai2read" width="500" height="333">
-        <img src="https://i2.nhentaimg.com/015/5havrts0i3/3.jpg" alt="hentai2read" width="500" height="333">
+        <center class="font-black capitalize text-xl mb-10">Score</center>
+        
+        <div class="grid grid-cols-2 gap-2">
+            <div class="bg-base-200 flex flex-col gap-2 p-2 rounded-sm shadow-drop-shadow">
+                <input type="text" class="bg-transparent input input-sm rounded-sm focus:border-none w-full text-xs opacity-50 text-center" placeholder="Player 1">
+                <input type="number" id="number1" class="bg-base-100 input input-sm rounded-sm focus:border-none w-full" placeholder="0" disabled>
+                <input type="number" id="number2" class="bg-base-100 input input-sm rounded-sm focus:border-none w-full" placeholder="0">
+                
+                <div class="flex gap-3">
+                    <button onclick="addNumbers()" class="btn btn-primary flex-grow btn-sm rounded-sm">
+                        <i class="bi-plus"></i>
+                    </button>
+                    <button onclick="subtractNumbers()" class="btn btn-secondary flex-grow btn-sm rounded-sm">
+                        <i class="bi-dash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function addNumbers() {
+                let locData = localStorage.getItem('Player 1');
+                let num1 = parseFloat(document.getElementById('number1').value);
+                let num2 = parseFloat(document.getElementById('number2').value);
+
+                if (isNaN(num1)) {
+                    num1 = 0;
+                    document.getElementById('number1').value = num1;
+                }
+                
+                if (isNaN(num2)) {
+                    num2 = 0;
+                    document.getElementById('number2').value = num2;
+                }
+
+                const result = num1 + num2;
+
+                localStorage.setItem('result', result);
+
+                document.getElementById('number1').value = localStorage.getItem('result');
+                document.getElementById('number2').value = 0;
+            }
+
+            // function addNumbers() {
+            //     const ls = localStorage.getItem('play1');
+            //     let num1 = parseFloat(document.getElementById('number1').value);
+            //     let num2 = parseFloat(document.getElementById('number2').value);
+                
+            //     if (isNaN(num1)) {
+            //         num1 = 0;
+            //         document.getElementById('number1').value = num1;
+            //     }
+                
+            //     const result = num1 + num2;
+                
+            //     localStorage.setItem('result', result);
+            //      // Store addition result in localStorage
+            //     document.getElementById('number1').value = result;
+            //     document.getElementById('number2').value = '';
+                
+                
+            //     document.getElementById('number1').value = dd;
+
+            //     console.log(dd)
+            // }
+        </script>
+
     </body>
 </html>
