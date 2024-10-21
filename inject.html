@@ -250,27 +250,6 @@
     </script> 
     
 
-    {
-        "type"         : "hentai",
-        "source"       : "https://hstream.moe/hentai/sakusei-byoutou-the-animation-9",
-        "cover"        : "cover-ep-9.webp",
-        "title"        : "Sakusei Byoutou The Animation - 9",
-        "slug"         : "sakusei-byoutou-the-animation-9",
-        "series"       : "Sakusei Byoutou The Animation",
-        "alternative"  : "搾精病棟 THE ANIMATION",
-        "tags"         : ["Big Boobs","Blow Job","Censored","Creampie","Facial","Foot Job","Hand Job","Nurse","Toys","Virgin","X-Ray"],
-        "brand"        : "Pink Pineapple",
-        "description"  : "Yamada, who has been mistreated by unpleasant nurses and has become a broken person both physically and mentally, will now be cared for by Nurse Tendou Mia, who is eccentric and a psychopath. Despite her unstable behavior in the hospital, Mia is backed by her sister Kangoshichou, a person who controls everything in the hospital.A small accident has caused Mia’s mind to become more unstable, and Yamada is forced to face the furious retaliation of Kangoshichou, who is willing to do anything to protect her sister’s “ideal world” and her own, even if that puts Yamada’s life in danger.",
-        "view"         : "75",
-        "uploaded"     : "2021-04-30",
-        "released"     : "2024-10-09"
-    },
-
-    
-
-    https://cdn.discordapp.com/attachments/1293895902985195564/1293896711315656777/SPOILER_cover-ep-1.webp?ex=67090ab7&is=6707b937&hm=b2a811df05385175ddb2871718ec28b8b48f8a465dc7eff91860c8f97bc04b2a&
-    https://cdn.discordapp.com/attachments/1293895902985195564/1293897577120530443/cover-ep-1.webp?ex=67090b85&is=6707ba05&hm=050483db76c642e12dc31e06c5b8421757b6ae4a4afa5f81b9d7c8aa67f56fae&
-
 
     <!-- hstream.moe-->
     <script>
@@ -312,5 +291,29 @@
         </textarea>      
         `;
     </script> 
+
+    <!-- flaticons -->
+    <script>
+        var getSource     = window.location.href;
+        var getTags       = 'interface, set, design, application';
+        var getTitlePost  = document.querySelector('.pack-view__header h1 .title').textContent.replace('Icon Pack: ','').replaceAll(/\s+/g, "");
+        var getIcon       = document.querySelectorAll('.icons .icon--item .icon--holder a img')
+        var arrayIcon     = Array.from(getIcon, img => img.getAttribute('src').replace('128','512'));
+        var arrayTitle    = Array.from(getIcon, title => title.getAttribute('title').replace(' icon',''));
+        
+        
+        document.querySelector(".search-pack-result").innerHTML =
+        `
+        <textarea style="height:350px; width:100%; font-size:10pt">
+            {
+                "source"       : "${getSource}",
+                "tags"         : "${getTags}",
+                "titlePost"    : "${getTitlePost}",
+                "icon"         : [${arrayIcon.map(doc => `"${doc}"` )}],
+                "arrayTitle"   : [${arrayTitle.map(doc => `"${doc}"` )}]
+            },
+        </textarea>      
+        `;
+    </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 
         <center class="font-black capitalize text-xl mb-10">Score</center>
         
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-2 hidden">
             <div class="bg-base-200 flex flex-col gap-2 p-2 rounded-sm shadow-drop-shadow">
                 <input type="text" class="bg-transparent input input-sm rounded-sm focus:border-none w-full text-xs opacity-50 text-center" placeholder="Player 1">
                 <input type="number" id="number1" class="bg-base-100 input input-sm rounded-sm focus:border-none w-full" placeholder="0" disabled>
@@ -30,6 +30,48 @@
             </div>
         </div>
 
+        <!-- Icon Page -->
+        <h1>Data from JSON</h1>
+        <table id="data-table" class="border" border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </table>
+
+        <script>
+            fetch('https://jankquin.github.io/api/hentai.json')
+              .then(response => response.json())
+              .then(data => {
+                const table = document.getElementById('data-table');
+          
+                data.forEach(item => {
+                  const row = document.createElement('tr');
+          
+                  // Create cells
+                  const idCell = document.createElement('td');
+                  idCell.textContent = item.title;
+          
+                  const nameCell = document.createElement('td');
+                  nameCell.textContent = item.name;
+          
+                  const valueCell = document.createElement('td');
+                  valueCell.textContent = item.value;
+          
+                  // Append cells to the row
+                  row.appendChild(idCell);
+                  row.appendChild(nameCell);
+                  row.appendChild(valueCell);
+          
+                  // Append row to the table
+                  table.appendChild(row);
+                });
+              })
+              .catch(error => console.error('Error:', error));
+          </script>
+
+        <!-- score -->
         <script>
             function addNumbers() {
                 let locData = localStorage.getItem('Player 1');
