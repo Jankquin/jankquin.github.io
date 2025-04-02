@@ -1,12 +1,4 @@
 [
-    
-    {
-        "source"       : "inkubators",
-        "tags"         : "",
-        "titlePost"    : "inkubators",
-        "icon"         : [""]
-        "title"        : [""]
-    },
     {
         "source"       : "https://www.flaticon.com/packs/coffee-211",
         "tags"         : "interface, set, design, application",
@@ -151,13 +143,7 @@
 
     
      
-     {
-        "source"       : "unknow",
-        "tags"         : "",
-        "titlePost"    : "unknow",
-        "icon"         : [""]
-        "title"        : [""]
-    },
+
     {
         "source"       : "https://www.flaticon.com/packs/ui-509",
         "tags"         : "interface, set, design, application",
