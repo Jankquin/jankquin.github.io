@@ -7,6 +7,29 @@
 </head>
 <body>
   
+    <!-- https://spankbang.com -->
+    <script>
+        const spSource= window.location.href;
+        const spTitle = document.querySelector('.main_content_title')?.textContent.trim() || "";
+        const spTags  = document.querySelectorAll('.flex-col .relative .searches a')
+
+        const spArray = Array.from(spTags).map(tag =>
+            tag.textContent.trim()
+        );
+
+        document.querySelector(".ad_button").innerHTML = `
+            <textarea style="height:350px; width:100%; font-size:10pt">
+                {
+                    "id"    : "${Date.now()}",
+                    "source": "${spSource}",
+                    "title" : "${spTitle}",
+                    "tags"  : [${spArray.map(doc => `"${doc}"` )}]
+                },
+            </textarea>
+        `;
+    </script>
+
+
     <!-- Pixiv x Cloudinary Original Size -->
     <script>
         const GetElementImages = document.querySelectorAll('.gtm-expand-full-size-illust');
