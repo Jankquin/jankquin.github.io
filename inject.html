@@ -20,10 +20,11 @@
         document.querySelector(".ad_button").innerHTML = `
             <textarea style="height:350px; width:100%; font-size:10pt">
                 {
-                    "id"    : "${Date.now()}",
-                    "source": "${spSource}",
-                    "title" : "${spTitle}",
-                    "tags"  : [${spArray.map(doc => `"${doc}"` )}]
+                    "id"      : "${Date.now()}",
+                    "source"  : "${spSource}",
+                    "actress" : "",
+                    "title"   : "${spTitle}",
+                    "tags"    : [${spArray.map(doc => `"${doc}"` )}]
                 },
             </textarea>
         `;
