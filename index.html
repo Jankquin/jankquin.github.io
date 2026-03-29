@@ -1,124 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Api</title>
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Remi Score Pro</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     </head>
 
-    <body class="bg-base-300 h-screen px-3 py-5">
 
-        <center class="font-black capitalize text-xl mb-10">Score</center>
+    <script>
+       const dd = [ {
+            "id"        : "1772984767149",
+            "source"    : "https://spankbang.com/8vawv/video/blue+highlights+sht+dy",
+            "title"     : "shydy Live Masturbation",
+            "actress"   : "Shy dy",
+            "tags"      : ["cam","asian","solo","masturbation","toy","cute"],
+            "file_code" : "1eq1ej409he7",
+            "single_img": "https://thumbcdn.com/snaps/lflctcdnwje65oqc.jpg",
+            "splash_img": "https://thumbcdn.com/splash/lflctcdnwje65oqc.jpg",
+            "views"     : "1",
+            "uploaded"  : "2026-03-08 15:46:15",
+            "length"    : "658"
+        },
+
+        {
+            "type"        : "porn",
+            "id"          : "1772984767149",
+            "source"      : "https://spankbang.com/",
+            "cover"       : "freeimghost",
+            "actress"     : "Xiao You Nai",
+            "title"       : "Sexy girl Xiao You Nai 33",
+            "tags"        : ["big tits","amateur","solo","masturbation","oiled","pink pussy"],
+            "uploaded"    : "${Date.now()}"
+        },
         
-        <div class="grid grid-cols-2 gap-2 hidden">
-            <div class="bg-base-200 flex flex-col gap-2 p-2 rounded-sm shadow-drop-shadow">
-                <input type="text" class="bg-transparent input input-sm rounded-sm focus:border-none w-full text-xs opacity-50 text-center" placeholder="Player 1">
-                <input type="number" id="number1" class="bg-base-100 input input-sm rounded-sm focus:border-none w-full" placeholder="0" disabled>
-                <input type="number" id="number2" class="bg-base-100 input input-sm rounded-sm focus:border-none w-full" placeholder="0">
-                
-                <div class="flex gap-3">
-                    <button onclick="addNumbers()" class="btn btn-primary flex-grow btn-sm rounded-sm">
-                        <i class="bi-plus"></i>
-                    </button>
-                    <button onclick="subtractNumbers()" class="btn btn-secondary flex-grow btn-sm rounded-sm">
-                        <i class="bi-dash"></i>
-                    </button>
+        {
+            "type"        : "hentai",
+            "id"          : "1772984767149",
+            "source"      : "https://hstream.moe/",
+            "cover"       : "freeimghost",
+            "brand"       : "Queen bee",
+            "title"       : "Sexy girl Xiao You Nai 33",
+            "description" : "Sexy girl Xiao You Nai 33",
+            "tags"        : ["big tits","amateur","solo","masturbation","oiled","pink pussy"],
+            "uploaded"    : "${Date.now()}"
+        },
+        
+        {
+            "type"        : "Nsfw",
+            "id"          : "1772984767149",
+            "source"      : "spankbang or iwara.tv",
+            "cover"       : "freeimghost",
+            "artist"      : "Queen bee",
+            "title"       : "Sexy girl Xiao You Nai 33",
+            "tags"        : ["big tits","amateur","solo","masturbation","oiled","pink pussy"],
+            "uploaded"    : "${Date.now()}"
+        },
+        
+        {
+            "type"        : "Images",
+            "id"          : "1772984767149",
+            "source"      : "https://cosplaytele.com/",
+            "cover"       : "freeimghost",
+            "actress"     : "ChuChu Magic",
+            "title"       : "Hutao Genshin Impact",
+            "tags"        : ["big tits","amateur","solo","masturbation","oiled","pink pussy"],
+            "uploaded"    : "${Date.now()}"
+        }]
+    </script>
+
+
+    <body class="bg-zinc-950 text-zinc-200 min-h-screen font-sans">
+
+        <div class="max-w-md mx-auto p-6">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-xl font-black tracking-tighter uppercase text-sky-500">Edankeun</h1>
+                <button onclick="resetGame()" class="text-xs bg-zinc-900 hover:bg-red-900/30 text-zinc-500 hover:text-red-400 px-3 py-1 rounded-full border border-zinc-800 transition-all">
+                    Reset Game
+                </button>
+            </div>
+        
+            <div class="bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl shadow-xl mb-6">
+                <div class="grid grid-cols-4 gap-3 mb-5">
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-zinc-500 text-center">Candra</label>
+                        <input type="number" id="p1" class="w-full bg-zinc-800 border border-zinc-700 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-xl p-3 text-center outline-none transition-all text-lg font-semibold" placeholder="0">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-zinc-500 text-center">Lukman</label>
+                        <input type="number" id="p2" class="w-full bg-zinc-800 border border-zinc-700 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-xl p-3 text-center outline-none transition-all text-lg font-semibold" placeholder="0">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-zinc-500 text-center">Rizki</label>
+                        <input type="number" id="p3" class="w-full bg-zinc-800 border border-zinc-700 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-xl p-3 text-center outline-none transition-all text-lg font-semibold" placeholder="0">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-zinc-500 text-center">Jajang</label>
+                        <input type="number" id="p4" class="w-full bg-zinc-800 border border-zinc-700 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-xl p-3 text-center outline-none transition-all text-lg font-semibold" placeholder="0">
+                    </div>
                 </div>
+                <button onclick="addRound()" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-sky-900/20 active:scale-[0.98] transition-all">
+                    Simpan Ronde
+                </button>
+            </div>
+        
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-zinc-800/50 border-b border-zinc-800">
+                        <tr class="text-[10px] font-black uppercase tracking-widest text-zinc-500">
+                            <th class="py-4 px-2">Rnd</th>
+                            <th class="py-4 px-2 text-sky-400">Player 1</th>
+                            <th class="py-4 px-2 text-emerald-400">Player 2</th>
+                            <th class="py-4 px-2 text-amber-400">Player 3</th>
+                            <th class="py-4 px-2 text-rose-400">Player 4</th>
+                        </tr>
+                    </thead>
+                    <tbody id="score-body" class="divide-y divide-zinc-800">
+                        </tbody>
+                    <tfoot class="bg-zinc-800/80 font-black text-lg border-t-2 border-zinc-700">
+                        <tr class="text-center">
+                            <td class="py-4 text-[10px] text-zinc-500">TOTAL</td>
+                            <td id="t1" class="py-4 text-sky-400">0</td>
+                            <td id="t2" class="py-4 text-emerald-400">0</td>
+                            <td id="t3" class="py-4 text-amber-400">0</td>
+                            <td id="t4" class="py-4 text-rose-400">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
-
-        <!-- Icon Page -->
-        <h1>Data from JSON</h1>
-        <table id="data-table" class="border" border="1">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Value</th>
-            </tr>
-        </table>
-
+        
         <script>
-            fetch('https://jankquin.github.io/api/hentai.json')
-              .then(response => response.json())
-              .then(data => {
-                const table = document.getElementById('data-table');
-          
-                data.forEach(item => {
-                  const row = document.createElement('tr');
-          
-                  // Create cells
-                  const idCell = document.createElement('td');
-                  idCell.textContent = item.title;
-          
-                  const nameCell = document.createElement('td');
-                  nameCell.textContent = item.name;
-          
-                  const valueCell = document.createElement('td');
-                  valueCell.textContent = item.value;
-          
-                  // Append cells to the row
-                  row.appendChild(idCell);
-                  row.appendChild(nameCell);
-                  row.appendChild(valueCell);
-          
-                  // Append row to the table
-                  table.appendChild(row);
+            // Load data dari localStorage saat startup
+            let history = JSON.parse(localStorage.getItem("remi_history") || "[]");
+
+            // Jalankan fungsi update tampilan pertama kali
+            renderData();
+
+            function addRound() {
+                const players = ['p1', 'p2', 'p3', 'p4'];
+                const newRound = {};
+
+                players.forEach(p => {
+                    const input = document.getElementById(p);
+                    newRound[p] = parseInt(input.value) || 0;
+                    input.value = ''; // Reset input
                 });
-              })
-              .catch(error => console.error('Error:', error));
-          </script>
 
-        <!-- score -->
-        <script>
-            function addNumbers() {
-                let locData = localStorage.getItem('Player 1');
-                let num1 = parseFloat(document.getElementById('number1').value);
-                let num2 = parseFloat(document.getElementById('number2').value);
-
-                if (isNaN(num1)) {
-                    num1 = 0;
-                    document.getElementById('number1').value = num1;
-                }
-                
-                if (isNaN(num2)) {
-                    num2 = 0;
-                    document.getElementById('number2').value = num2;
-                }
-
-                const result = num1 + num2;
-
-                localStorage.setItem('result', result);
-
-                document.getElementById('number1').value = localStorage.getItem('result');
-                document.getElementById('number2').value = 0;
+                history.push(newRound);
+                saveAndRender();
+                document.getElementById('p1').focus(); // Balik ke P1
             }
 
-            // function addNumbers() {
-            //     const ls = localStorage.getItem('play1');
-            //     let num1 = parseFloat(document.getElementById('number1').value);
-            //     let num2 = parseFloat(document.getElementById('number2').value);
+            function renderData() {
+                const body = document.getElementById('score-body');
+                body.innerHTML = '';
                 
-            //     if (isNaN(num1)) {
-            //         num1 = 0;
-            //         document.getElementById('number1').value = num1;
-            //     }
-                
-            //     const result = num1 + num2;
-                
-            //     localStorage.setItem('result', result);
-            //      // Store addition result in localStorage
-            //     document.getElementById('number1').value = result;
-            //     document.getElementById('number2').value = '';
-                
-                
-            //     document.getElementById('number1').value = dd;
+                let totals = { p1: 0, p2: 0, p3: 0, p4: 0 };
 
-            //     console.log(dd)
-            // }
+                history.forEach((round, index) => {
+                    const row = `
+                        <tr class="text-center text-sm font-medium hover:bg-zinc-800/30 transition-colors">
+                            <td class="py-3 text-zinc-600 text-xs">${index + 1}</td>
+                            <td class="py-3">${round.p1}</td>
+                            <td class="py-3">${round.p2}</td>
+                            <td class="py-3">${round.p3}</td>
+                            <td class="py-3">${round.p4}</td>
+                        </tr>
+                    `;
+                    body.insertAdjacentHTML('beforeend', row);
+                    
+                    // Akumulasi total
+                    totals.p1 += round.p1;
+                    totals.p2 += round.p2;
+                    totals.p3 += round.p3;
+                    totals.p4 += round.p4;
+                });
+
+                // Update Footer
+                document.getElementById('t1').innerText = totals.p1;
+                document.getElementById('t2').innerText = totals.p2;
+                document.getElementById('t3').innerText = totals.p3;
+                document.getElementById('t4').innerText = totals.p4;
+            }
+
+            function saveAndRender() {
+                localStorage.setItem("remi_history", JSON.stringify(history));
+                renderData();
+            }
+
+            function resetGame() {
+                if (confirm("Reset papan skor? Semua data akan dihapus.")) {
+                    history = [];
+                    saveAndRender();
+                }
+            }
         </script>
-
     </body>
 </html>
+
+
+
+
