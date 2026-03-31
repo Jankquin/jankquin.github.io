@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1743444000,
+    "source": "DoodStream",
+    "title": "Petualangan Kuliner di Jakarta Pusat",
+    "artist": "Sarah Amalia",
+    "tags": ["kuliner", "jakarta", "makanan", "vlog", "wisata"],
+    "uploaded": 1743444000,
+    "file_code": "dood123abc",
+    "single_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "splash_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "length": "12:45",
+    "views": 432
+  },
+  {
+    "id": 1743444060,
+    "source": "DoodStream",
+    "title": "Tips Coding React untuk Pemula",
+    "artist": "Diana Putri",
+    "tags": ["coding", "react", "nextjs", "tutorial", "javascript"],
+    "uploaded": 1743444060,
+    "file_code": "dood456def",
+    "single_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "splash_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "length": "08:20",
+    "views": 876
+  },
+  {
+    "id": 1743444120,
+    "source": "DoodStream",
+    "title": "Review Laptop Gaming Terbaru 2026",
+    "artist": "Clara Sinta",
+    "tags": ["tech", "gaming", "laptop", "review", "gadget"],
+    "uploaded": 1743444120,
+    "file_code": "dood789ghi",
+    "single_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "splash_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "length": "15:10",
+    "views": 124
+  },
+  {
+    "id": 1743444180,
+    "source": "DoodStream",
+    "title": "Daily Life in Seoul Korea",
+    "artist": "Jessica Oh",
+    "tags": ["korea", "travel", "seoul", "daily", "lifestyle"],
+    "uploaded": 1743444180,
+    "file_code": "dood012jkl",
+    "single_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "splash_img": "https://i.postimg.cc/Gt4zWtB9/succubus-yondara-gibo-ga-kita-1.webp",
+    "length": "20:05",
+    "views": 998
+  }
+]
