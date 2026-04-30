@@ -1,70 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inject Code Developer Mode</title>
-</head>
-<body>
-  
+  </head>
+  <body>
+    <!-- DOWNLOAD - https://cosplaytele.com -->
+    <!-- step 1  -->
+    <script>
+      var script = document.createElement("script");
+      script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+      document.body.appendChild(script);
+    </script>
+
+    <!-- step 2  -->
+    <script>
+      (async () => {
+        const zip = new JSZip();
+        const links = document.querySelectorAll("#gallery-1 .gallery-item a");
+
+        let count = 0;
+
+        for (let i = 0; i < links.length; i++) {
+          try {
+            const url = links[i].href;
+
+            const response = await fetch(url);
+            const blob = await response.blob();
+
+            zip.file(`image-${i + 1}.jpg`, blob);
+            count++;
+            console.log(`Downloaded ${count}`);
+          } catch (err) {
+            console.log("Error:", err);
+          }
+        }
+
+        const content = await zip.generateAsync({ type: "blob" });
+
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(content);
+        a.download = "gallery.zip";
+        a.click();
+      })();
+    </script>
+
+    <!-- JSON - https://cosplaytele.com -->
+    <script>
+      const ctSource = window.location.href;
+      const ctTitle =
+        document.querySelector(".entry-title")?.textContent.trim() || "";
+      const ctCreator = document.querySelectorAll("blockquote p a");
+      const ctTags = document.querySelectorAll(".entry-category a");
+
+      const ctArrayCreator = Array.from(ctCreator).map((e) =>
+        e.textContent.trim(),
+      );
+      const ctArrayTags = Array.from(ctTags).map((tag) =>
+        tag.textContent.trim(),
+      );
+
+      console.log(`
+            {
+                "id"       : "${Date.now()}",
+                "dtype"    : "images",
+                "dsource"  : "${ctSource}",
+                "dcover"   : "",
+                "dtitle"   : "${ctTitle}",
+                "dcreator" : ${JSON.stringify(ctArrayCreator)},
+                "dtags"    : ${JSON.stringify(ctArrayTags)}
+            },
+        `);
+    </script>
+
     <!-- https://spankbang.com -->
     <script>
-        const spSource= window.location.href;
-        const spTitle = document.querySelector('.main_content_title')?.textContent.trim() || "";
-        const spTags  = document.querySelectorAll('.flex-col .relative .searches a')
+      const spSource = window.location.href;
+      const spTitle =
+        document.querySelector(".main_content_title")?.textContent.trim() || "";
+      const spTags = document.querySelectorAll(
+        ".flex-col .relative .searches a",
+      );
 
-        const spArray = Array.from(spTags).map(tag =>
-            tag.textContent.trim()
-        );
+      const spArray = Array.from(spTags).map((tag) => tag.textContent.trim());
 
-        document.querySelector(".ad_button").innerHTML = `
+      document.querySelector(".ad_button").innerHTML = `
             <textarea style="height:350px; width:100%; font-size:10pt">
                 {
                     "id"      : "${Date.now()}",
                     "source"  : "${spSource}",
-                    "actress" : "",
+                    "creator" : "",
                     "title"   : "${spTitle}",
-                    "tags"    : [${spArray.map(doc => `"${doc}"` )}]
+                    "tags"    : [${spArray.map((doc) => `"${doc}"`)}]
                 },
             </textarea>
         `;
     </script>
 
-
     <!-- Pixiv x Cloudinary Original Size -->
     <script>
-        const GetElementImages = document.querySelectorAll('.gtm-expand-full-size-illust');
+      const GetElementImages = document.querySelectorAll(
+        ".gtm-expand-full-size-illust",
+      );
 
-        GetElementImages.forEach(link => {
-            const img       = link.querySelector('img');
-            const newSrc    = link.getAttribute('href');
-            img.setAttribute('src', newSrc);
-        });
-
+      GetElementImages.forEach((link) => {
+        const img = link.querySelector("img");
+        const newSrc = link.getAttribute("href");
+        img.setAttribute("src", newSrc);
+      });
     </script>
 
     <!-- Pixiv x Cloudinary Thumbnail -->
     <script>
-        const GetElementArtist  = document.querySelector('.sc-d98f2c-0.sc-cwiweh').textContent;
-        const GetElementImage   = document.querySelectorAll('.sc-1qpw8k9-1.jOmqKq');
-        const GetElementTitle   = document.querySelector('.sc-1u8nu73-3.lfwBiP').textContent;
-        const GetElementTag     = document.querySelectorAll("ul.gZfuPH a");
-        const GetElementCode    = document.querySelector('.eStCAU');
-        const GetData           = new Date();
+      const GetElementArtist = document.querySelector(
+        ".sc-d98f2c-0.sc-cwiweh",
+      ).textContent;
+      const GetElementImage = document.querySelectorAll(".sc-1qpw8k9-1.jOmqKq");
+      const GetElementTitle = document.querySelector(
+        ".sc-1u8nu73-3.lfwBiP",
+      ).textContent;
+      const GetElementTag = document.querySelectorAll("ul.gZfuPH a");
+      const GetElementCode = document.querySelector(".eStCAU");
+      const GetData = new Date();
 
-        const ArrayTag          = Array.from(GetElementTag);
-        const ArrayImage        = Array.from(GetElementImage, img => img.getAttribute('src').split('/').pop().replace('.jpg', ''));
-        
-        const FilterTag         = ArrayTag.filter((link) => !link.classList.contains("gtm-new-work-tag-event-click"));
-        const FilterDate        = GetData.toISOString();
-        
-        const DataSlug          = btoa(unescape(encodeURIComponent(GetElementTitle)));
-        const DataTag           = FilterTag.map((link) => link.textContent);
-        const DataCover         = `https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Nsfw/${GetElementArtist}/${ArrayImage[0]}.webp`;
-        const DataImage         = Array.from(ArrayImage, doc => `https://res.cloudinary.com/dvdute5j8/image/upload/Nsfw/${GetElementArtist}/${doc}.webp`)
+      const ArrayTag = Array.from(GetElementTag);
+      const ArrayImage = Array.from(GetElementImage, (img) =>
+        img.getAttribute("src").split("/").pop().replace(".jpg", ""),
+      );
 
-   
-        const NewElement = `
+      const FilterTag = ArrayTag.filter(
+        (link) => !link.classList.contains("gtm-new-work-tag-event-click"),
+      );
+      const FilterDate = GetData.toISOString();
+
+      const DataSlug = btoa(unescape(encodeURIComponent(GetElementTitle)));
+      const DataTag = FilterTag.map((link) => link.textContent);
+      const DataCover = `https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Nsfw/${GetElementArtist}/${ArrayImage[0]}.webp`;
+      const DataImage = Array.from(
+        ArrayImage,
+        (doc) =>
+          `https://res.cloudinary.com/dvdute5j8/image/upload/Nsfw/${GetElementArtist}/${doc}.webp`,
+      );
+
+      const NewElement = `
             <div style="padding:10px;">
                 <p>Full Data</p>
                 <textarea style="width: -webkit-fill-available;height: 400px; border: none; border-radius: 5px; background: #4c4c4c;padding: 10px; color:white; margin-bottom:20px">
@@ -75,9 +155,9 @@
                             {
                                 "Title"     : "${GetElementTitle}",
                                 "Slug"      : "${btoa(unescape(encodeURIComponent(FilterDate)))}",
-                                "Tag"       : [${DataTag.map(doc => `"${doc}"` )}],
+                                "Tag"       : [${DataTag.map((doc) => `"${doc}"`)}],
                                 "Cover"     : "${DataCover}",
-                                "Image"     : [${DataImage.map(doc => `"${doc}"` )}],
+                                "Image"     : [${DataImage.map((doc) => `"${doc}"`)}],
                                 "Uploaded"  : "${FilterDate.slice(0, 10)}"
                             }
                         ]
@@ -86,28 +166,94 @@
             </div>
         `;
 
-        GetElementCode.innerHTML += NewElement;
+      GetElementCode.innerHTML += NewElement;
     </script>
 
     <!-- Hentaibar -->
     <script>
-        var getUrl      = window.location.href;
-        var getTitle    = document.querySelector('.heading__title').textContent;
-        var getSlug     = getUrl.split('/');
-        var getSeries   = document.querySelector('.trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary').textContent;
-        var getTags     = document.querySelectorAll('.trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary');
-        var blockTags   = ["action","adventure","ahegao","anal","bdsm","big boobs","blowjob","bondage","boobjob","boy love","censored","cgi","comedy","cosplay","creampie","dark skin","drama","ecchi","facial","fantasy","femdom","footjob","futanari","gangbang","glasses","handjob","harem","incest","lactation","large breasts","loli","mastrubation","milf","mind break","mind control","nekomimi","ntr","orgy","public sex","plot","point of view","pregnant","rape","reverse rape","rimjob","romance","scat","school girl","squirting","swimsuit","teacher","tentacles","trap","tsundere","ugly bastard","uncensored","urination","vanilla","virgin","watersports","yaoi","yuri"]
+      var getUrl = window.location.href;
+      var getTitle = document.querySelector(".heading__title").textContent;
+      var getSlug = getUrl.split("/");
+      var getSeries = document.querySelector(
+        ".trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary",
+      ).textContent;
+      var getTags = document.querySelectorAll(
+        ".trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary",
+      );
+      var blockTags = [
+        "action",
+        "adventure",
+        "ahegao",
+        "anal",
+        "bdsm",
+        "big boobs",
+        "blowjob",
+        "bondage",
+        "boobjob",
+        "boy love",
+        "censored",
+        "cgi",
+        "comedy",
+        "cosplay",
+        "creampie",
+        "dark skin",
+        "drama",
+        "ecchi",
+        "facial",
+        "fantasy",
+        "femdom",
+        "footjob",
+        "futanari",
+        "gangbang",
+        "glasses",
+        "handjob",
+        "harem",
+        "incest",
+        "lactation",
+        "large breasts",
+        "loli",
+        "mastrubation",
+        "milf",
+        "mind break",
+        "mind control",
+        "nekomimi",
+        "ntr",
+        "orgy",
+        "public sex",
+        "plot",
+        "point of view",
+        "pregnant",
+        "rape",
+        "reverse rape",
+        "rimjob",
+        "romance",
+        "scat",
+        "school girl",
+        "squirting",
+        "swimsuit",
+        "teacher",
+        "tentacles",
+        "trap",
+        "tsundere",
+        "ugly bastard",
+        "uncensored",
+        "urination",
+        "vanilla",
+        "virgin",
+        "watersports",
+        "yaoi",
+        "yuri",
+      ];
 
-        var dataTags    = [];
-    
-        getTags.forEach(function (doc) {
-            if (blockTags.includes(doc.textContent)) {
-                dataTags.push(doc.textContent);
-            }
-        });
+      var dataTags = [];
 
-        document.querySelector(".trailer__row .comments").innerHTML =
-            `
+      getTags.forEach(function (doc) {
+        if (blockTags.includes(doc.textContent)) {
+          dataTags.push(doc.textContent);
+        }
+      });
+
+      document.querySelector(".trailer__row .comments").innerHTML = `
             <div>
                 <textarea style="height:250px; width:100%; font-size:7pt">
                     {
@@ -116,7 +262,7 @@
                         "Slug"         : "${getSlug[getSlug.length - 2]}",
                         "Series"       : "${getSeries}",
                         "Tags"         : ${JSON.stringify(dataTags)},
-                        "Released"     : ${JSON.stringify(dataTags.find(item => /^\d{4}$/.test(item)))},
+                        "Released"     : ${JSON.stringify(dataTags.find((item) => /^\d{4}$/.test(item)))},
                         "Uploaded"     : "${new Date().toISOString().slice(0, 10)}"
                     },
                 </textarea>
@@ -124,59 +270,84 @@
         `;
     </script>
 
-
     <!-- Hanime x Cloudinary -->
     <script>
-        var tagHanime       = window.location.href;
-        var tagUrlCover     = document.querySelector('.clearfix .hvpi-cover-container img').src;
-        var tagCover        = document.querySelector('.clearfix .hvpi-cover-container img').src.replace('.png', '').replace('.PNG', '').replace('.jpg', '').replace('.jpeg', '').split('/');
-        var tagTitle        = document.querySelector('.tv-title').textContent;
-        var tagSlug         = tagHanime.split('/');
-        var tagBrand        = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[0].textContent;
-        var tagRelease      = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[2].textContent;
-        var tagUpload       = document.querySelectorAll('.hvpimbc-item .hvpimbc-text')[3].textContent;
-        var tagAlternative  = document.querySelectorAll('.hvpimbc-item h2 .grey--text');
-        var tagTags         = document.querySelectorAll('.hvpi-summary .hvpis-text a');
-        var tagDescription  = document.querySelectorAll('.hvpi-summary .hvpis-text .hvpist-description');
-        var tagSeries       = document.querySelectorAll('#related_content .rc-section .rcs-title strong');
+      var tagHanime = window.location.href;
+      var tagUrlCover = document.querySelector(
+        ".clearfix .hvpi-cover-container img",
+      ).src;
+      var tagCover = document
+        .querySelector(".clearfix .hvpi-cover-container img")
+        .src.replace(".png", "")
+        .replace(".PNG", "")
+        .replace(".jpg", "")
+        .replace(".jpeg", "")
+        .split("/");
+      var tagTitle = document.querySelector(".tv-title").textContent;
+      var tagSlug = tagHanime.split("/");
+      var tagBrand = document.querySelectorAll(".hvpimbc-item .hvpimbc-text")[0]
+        .textContent;
+      var tagRelease = document.querySelectorAll(
+        ".hvpimbc-item .hvpimbc-text",
+      )[2].textContent;
+      var tagUpload = document.querySelectorAll(
+        ".hvpimbc-item .hvpimbc-text",
+      )[3].textContent;
+      var tagAlternative = document.querySelectorAll(
+        ".hvpimbc-item h2 .grey--text",
+      );
+      var tagTags = document.querySelectorAll(".hvpi-summary .hvpis-text a");
+      var tagDescription = document.querySelectorAll(
+        ".hvpi-summary .hvpis-text .hvpist-description",
+      );
+      var tagSeries = document.querySelectorAll(
+        "#related_content .rc-section .rcs-title strong",
+      );
 
-        var getReleaseDate  = new Date(tagRelease);
-        var getUploadDate   = new Date(tagUpload);
+      var getReleaseDate = new Date(tagRelease);
+      var getUploadDate = new Date(tagUpload);
 
-        if (tagSeries.length > 0) {
-            var getSeries = tagSeries[0].textContent;
-        } else {
-            var getSeries = '';
-        }
+      if (tagSeries.length > 0) {
+        var getSeries = tagSeries[0].textContent;
+      } else {
+        var getSeries = "";
+      }
 
-        var getReleaseYear  = getReleaseDate.getFullYear();
-        var getReleaseMonth = String(getReleaseDate.getMonth() + 1).padStart(2, '0');
-        var getReleaseDay   = String(getReleaseDate.getDate()).padStart(2, '0');
-        
-        var getUploadYear  = getUploadDate.getFullYear();
-        var getUploadMonth = String(getUploadDate.getMonth() + 1).padStart(2, '0');
-        var getUploadDay   = String(getUploadDate.getDate()).padStart(2, '0');
+      var getReleaseYear = getReleaseDate.getFullYear();
+      var getReleaseMonth = String(getReleaseDate.getMonth() + 1).padStart(
+        2,
+        "0",
+      );
+      var getReleaseDay = String(getReleaseDate.getDate()).padStart(2, "0");
 
-        var arrayAlternative = [];
-        var arrayTags        = [];
-        var arrayDescription = [];
-    
-        tagAlternative.forEach(function (doc) {
-            arrayAlternative.push(doc.textContent);
-        });
-        
-        tagTags.forEach(function (doc) {
-            arrayTags.push(doc.textContent);
-        });
-        
-        tagDescription.forEach(function (doc) {
-            arrayDescription.push(doc.textContent);
-        });
+      var getUploadYear = getUploadDate.getFullYear();
+      var getUploadMonth = String(getUploadDate.getMonth() + 1).padStart(
+        2,
+        "0",
+      );
+      var getUploadDay = String(getUploadDate.getDate()).padStart(2, "0");
 
-        window.open(tagUrlCover, '_blank')
+      var arrayAlternative = [];
+      var arrayTags = [];
+      var arrayDescription = [];
 
-        document.querySelector(".htv-video-page-info .hvpi-summary .wrap").innerHTML =
-        `
+      tagAlternative.forEach(function (doc) {
+        arrayAlternative.push(doc.textContent);
+      });
+
+      tagTags.forEach(function (doc) {
+        arrayTags.push(doc.textContent);
+      });
+
+      tagDescription.forEach(function (doc) {
+        arrayDescription.push(doc.textContent);
+      });
+
+      window.open(tagUrlCover, "_blank");
+
+      document.querySelector(
+        ".htv-video-page-info .hvpi-summary .wrap",
+      ).innerHTML = `
         <textarea style="height:450px; width:100%; font-size:10pt">
             {
                 "type"         : "hentai",
@@ -186,10 +357,10 @@
                 "title"        : "${tagTitle}",
                 "slug"         : "${tagSlug[tagSlug.length - 1]}",
                 "series"       : "${getSeries}",
-                "description"  : "${arrayDescription.join(', ').replace(/(\n|’|")/g, "'")}",
+                "description"  : "${arrayDescription.join(", ").replace(/(\n|’|")/g, "'")}",
                 "brand"        : "${tagBrand}",
-                "alternative"  : [${arrayAlternative.map(doc => `"${doc}"` )}],
-                "tags"         : [${arrayTags.map(doc => `"${doc}"` )}],
+                "alternative"  : [${arrayAlternative.map((doc) => `"${doc}"`)}],
+                "tags"         : [${arrayTags.map((doc) => `"${doc}"`)}],
                 "release"      : ["${getReleaseYear}-${getReleaseMonth}-${getReleaseDay}","${tagRelease}"],
                 "upload"       : ["${getUploadYear}-${getUploadMonth}-${getUploadDay}","${tagUpload}"]
             },
@@ -199,39 +370,57 @@
 
     <!-- Manhwa18 Info-->
     <script>
-        var getManhwa1      = window.location.href;
-        var getCover1       = document.querySelector('.a6-ratio .img-in-ratio');
-        var getCover2       = window.getComputedStyle(getCover1).getPropertyValue('background-image');
-        var getCover3       = getCover2.match(/url\("(.+)"\)/)[1];
-        var getTitle1       = document.querySelector('.series-name a').textContent;
-        var getSlug1        = document.querySelector('.series-name a').getAttribute('href').split('/').filter(segment => segment !== '').pop();
-        var getTags1        = document.querySelectorAll('.series-information .info-item')[2].querySelectorAll('.info-value a');
-        var getAuthor1      = document.querySelectorAll('.series-information .info-item')[3].querySelector('.info-value a').textContent;
-        var getStatus1      = document.querySelectorAll('.series-information .info-item')[4].querySelector('.info-value a').textContent;
-        var getDescription1 = document.querySelectorAll('.series-summary .summary-content p');
-        var getPosted1      = document.querySelectorAll('.card-body .list-chapters a .chapter-time');
-        
-        var getTags2        = [];
-        var getDescription2 = [];
-        var getPosted2      = [];
-        
-        getTags1.forEach((doc) => {
-            getTags2.push(doc.textContent.replace(/\s/g, '').toLocaleLowerCase());
-        });
-        
-        getDescription1.forEach((doc) => {
-            getDescription2.push(doc.textContent);
-        });
-        
-        if (getPosted1.length > 0) {
-            const lastPost = getPosted1[getPosted1.length - 1].textContent;
-            const match = lastPost.match(/\b\d{2}\/\d{2}\/\d{4}\b/)
-            const date = match ? match[0] : null;
-            getPosted2.push(date)
-        }
-        
-        document.querySelector(".bottom-part .row .col-12 .statistic-list").innerHTML =
-        `
+      var getManhwa1 = window.location.href;
+      var getCover1 = document.querySelector(".a6-ratio .img-in-ratio");
+      var getCover2 = window
+        .getComputedStyle(getCover1)
+        .getPropertyValue("background-image");
+      var getCover3 = getCover2.match(/url\("(.+)"\)/)[1];
+      var getTitle1 = document.querySelector(".series-name a").textContent;
+      var getSlug1 = document
+        .querySelector(".series-name a")
+        .getAttribute("href")
+        .split("/")
+        .filter((segment) => segment !== "")
+        .pop();
+      var getTags1 = document
+        .querySelectorAll(".series-information .info-item")[2]
+        .querySelectorAll(".info-value a");
+      var getAuthor1 = document
+        .querySelectorAll(".series-information .info-item")[3]
+        .querySelector(".info-value a").textContent;
+      var getStatus1 = document
+        .querySelectorAll(".series-information .info-item")[4]
+        .querySelector(".info-value a").textContent;
+      var getDescription1 = document.querySelectorAll(
+        ".series-summary .summary-content p",
+      );
+      var getPosted1 = document.querySelectorAll(
+        ".card-body .list-chapters a .chapter-time",
+      );
+
+      var getTags2 = [];
+      var getDescription2 = [];
+      var getPosted2 = [];
+
+      getTags1.forEach((doc) => {
+        getTags2.push(doc.textContent.replace(/\s/g, "").toLocaleLowerCase());
+      });
+
+      getDescription1.forEach((doc) => {
+        getDescription2.push(doc.textContent);
+      });
+
+      if (getPosted1.length > 0) {
+        const lastPost = getPosted1[getPosted1.length - 1].textContent;
+        const match = lastPost.match(/\b\d{2}\/\d{2}\/\d{4}\b/);
+        const date = match ? match[0] : null;
+        getPosted2.push(date);
+      }
+
+      document.querySelector(
+        ".bottom-part .row .col-12 .statistic-list",
+      ).innerHTML = `
         <textarea style="height:350px; width:100%; font-size:10pt">
             {
                 "type"         : "manhwa",
@@ -239,9 +428,9 @@
                 "cover"        : "${getCover3}",
                 "title"        : "${getTitle1}",
                 "slug"         : "${getSlug1}",
-                "description"  : "${getDescription2.join(', ').replace(/(\n|’|")/g, "'")}",
+                "description"  : "${getDescription2.join(", ").replace(/(\n|’|")/g, "'")}",
                 "author"       : "${getAuthor1}",
-                "tags"         : [${getTags2.map(doc => `"${doc}"`)}],
+                "tags"         : [${getTags2.map((doc) => `"${doc}"`)}],
                 "posted"       : "${getPosted2}",
                 "chapter"      : [
 
@@ -249,53 +438,65 @@
             },
         </textarea>      
         `;
-    </script> 
+    </script>
 
     <!-- Manhwa18 Chapter-->
     <script>
-        var getImage1       = document.querySelectorAll('#chapter-content img');
+      var getImage1 = document.querySelectorAll("#chapter-content img");
 
-        var getImage2       = [];
-        
-        getImage1.forEach((doc) => {
-            getImage2.push(doc.src);
-        });
-        
-        document.querySelector(".container .text-center").innerHTML =
-        `
+      var getImage2 = [];
+
+      getImage1.forEach((doc) => {
+        getImage2.push(doc.src);
+      });
+
+      document.querySelector(".container .text-center").innerHTML = `
         <textarea style="height:350px; width:100%; font-size:10pt">
             {
                 "chapter"      : "",
                 "uploaded"     : "${new Date().toISOString().slice(0, 10)}",
-                "images"       : [${getImage2.map(doc => `"${doc}"`)}]
+                "images"       : [${getImage2.map((doc) => `"${doc}"`)}]
             },
         </textarea>      
         `;
-    </script> 
-    
-
+    </script>
 
     <!-- hstream.moe-->
     <script>
-        var getSource       = window.location.href;
-        // var getCover        = document.querySelector('.overflow-hidden div img.block').src.split('/').pop();;
-        var getTitle        = document.querySelector('.relative div div h1').textContent.replaceAll("\n", "");
-        var getSlug         = window.location.href.split('/').pop();
-        var getSeries       = document.querySelector('.relative div div h1 a.break-words').textContent;
-        var getAlternative  = document.querySelector('.relative div div div h2.inline').textContent.replaceAll("\n", "");
-        var getTags         = document.querySelectorAll('.relative ul li a.block');
-        var getBrand        = document.querySelectorAll('.relative div div div a.leading-tight')[2].textContent.replaceAll("\n", "");
-        var getDescription  = document.querySelector('.relative p.leading-tight').textContent.replaceAll("\n", "");
-        var getUploaded     = document.querySelectorAll('.relative div div div a p.inline')[0].textContent.replaceAll("|", "").replaceAll(/\s+/g, "");
-        var getReleased     = document.querySelectorAll('.relative div div div a p.inline')[1].textContent.replaceAll("|", "").replaceAll(/\s+/g, "");
-        
-        var blockTags       = ['4K', '48Fps'];
-        var arrayTags       = Array.from(getTags).map(tag => tag.textContent.replaceAll("\n", "")).filter(tag => !blockTags.includes(tag));
+      var getSource = window.location.href;
+      // var getCover        = document.querySelector('.overflow-hidden div img.block').src.split('/').pop();;
+      var getTitle = document
+        .querySelector(".relative div div h1")
+        .textContent.replaceAll("\n", "");
+      var getSlug = window.location.href.split("/").pop();
+      var getSeries = document.querySelector(
+        ".relative div div h1 a.break-words",
+      ).textContent;
+      var getAlternative = document
+        .querySelector(".relative div div div h2.inline")
+        .textContent.replaceAll("\n", "");
+      var getTags = document.querySelectorAll(".relative ul li a.block");
+      var getBrand = document
+        .querySelectorAll(".relative div div div a.leading-tight")[2]
+        .textContent.replaceAll("\n", "");
+      var getDescription = document
+        .querySelector(".relative p.leading-tight")
+        .textContent.replaceAll("\n", "");
+      var getUploaded = document
+        .querySelectorAll(".relative div div div a p.inline")[0]
+        .textContent.replaceAll("|", "")
+        .replaceAll(/\s+/g, "");
+      var getReleased = document
+        .querySelectorAll(".relative div div div a p.inline")[1]
+        .textContent.replaceAll("|", "")
+        .replaceAll(/\s+/g, "");
 
+      var blockTags = ["4K", "48Fps"];
+      var arrayTags = Array.from(getTags)
+        .map((tag) => tag.textContent.replaceAll("\n", ""))
+        .filter((tag) => !blockTags.includes(tag));
 
-
-        document.querySelector("#comments").innerHTML =
-        `
+      document.querySelector("#comments").innerHTML = `
         <textarea style="height:350px; width:100%; font-size:10pt">
             {
                 "type"         : "hentai",
@@ -305,7 +506,7 @@
                 "slug"         : "${getSlug}",
                 "series"       : "${getSeries}",
                 "alternative"  : "${getAlternative}",
-                "tags"         : [${arrayTags.map(doc => `"${doc.replaceAll("\n", "")}"` )}],
+                "tags"         : [${arrayTags.map((doc) => `"${doc.replaceAll("\n", "")}"`)}],
                 "brand"        : "${getBrand}",
                 "description"  : "${getDescription}",
                 "view"         : "${Math.floor(Math.random() * 100) + 1}",
@@ -314,30 +515,37 @@
             },
         </textarea>      
         `;
-    </script> 
+    </script>
 
     <!-- flaticons -->
     <script>
-        var getSource     = window.location.href;
-        var getTags       = 'interface, set, design, application';
-        var getTitlePost  = document.querySelector('.pack-view__header h1 .title').textContent.replace('Icon Pack: ','').replaceAll(/\s+/g, "");
-        var getIcon       = document.querySelectorAll('.icons .icon--item .icon--holder a img')
-        var arrayIcon     = Array.from(getIcon, img => img.getAttribute('src').replace('128','512'));
-        var arrayTitle    = Array.from(getIcon, title => title.getAttribute('title').replace(' icon',''));
-        
-        
-        document.querySelector(".search-pack-result").innerHTML =
-        `
+      var getSource = window.location.href;
+      var getTags = "interface, set, design, application";
+      var getTitlePost = document
+        .querySelector(".pack-view__header h1 .title")
+        .textContent.replace("Icon Pack: ", "")
+        .replaceAll(/\s+/g, "");
+      var getIcon = document.querySelectorAll(
+        ".icons .icon--item .icon--holder a img",
+      );
+      var arrayIcon = Array.from(getIcon, (img) =>
+        img.getAttribute("src").replace("128", "512"),
+      );
+      var arrayTitle = Array.from(getIcon, (title) =>
+        title.getAttribute("title").replace(" icon", ""),
+      );
+
+      document.querySelector(".search-pack-result").innerHTML = `
         <textarea style="height:350px; width:100%; font-size:10pt">
             {
                 "source"       : "${getSource}",
                 "tags"         : "${getTags}",
                 "titlePost"    : "${getTitlePost}",
-                "icon"         : [${arrayIcon.map(doc => `"${doc}"` )}],
-                "title"        : [${arrayTitle.map(doc => `"${doc}"` )}]
+                "icon"         : [${arrayIcon.map((doc) => `"${doc}"`)}],
+                "title"        : [${arrayTitle.map((doc) => `"${doc}"`)}]
             },
         </textarea>      
         `;
     </script>
-</body>
+  </body>
 </html>
