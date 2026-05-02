@@ -65,12 +65,14 @@
       console.log(`
             {
                 "id"       : "${Date.now()}",
-                "dtype"    : "images",
-                "dsource"  : "${ctSource}",
-                "dcover"   : "",
-                "dtitle"   : "${ctTitle}",
-                "dcreator" : ${JSON.stringify(ctArrayCreator)},
-                "dtags"    : ${JSON.stringify(ctArrayTags)}
+                "xtype"    : "images",
+                "xsource"  : "${ctSource}",
+                "xcover"   : "",
+                "xtitle"   : "${ctTitle}",
+                "xdesc"    : "",
+                "xcreator" : ${JSON.stringify(ctArrayCreator)},
+                "xtags"    : ${JSON.stringify(ctArrayTags)},
+                "xdownload": ""
             },
         `);
     </script>
