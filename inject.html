@@ -6,7 +6,49 @@
     <title>Inject Code Developer Mode</title>
   </head>
   <body>
-    <!-- JSON - https://cosplaytele.com -->
+    <!-- JSON - https://hstream.moe -->
+    <script>
+      const hsSource = window.location.href;
+
+      const hsBlockTags = ["4K", "48Fps"];
+
+      const hsTitle = document
+        .querySelector(".relative div div h1")
+        .textContent.replaceAll("\n", "")
+        .trim();
+      const hsDesc = document
+        .querySelector(".relative p.leading-tight")
+        .textContent.replaceAll("\n", "")
+        .trim();
+      const hsBrand = document
+        .querySelectorAll(".relative div div div a.leading-tight")[2]
+        .textContent.replaceAll("\n", "")
+        .trim();
+      const hsTags = document.querySelectorAll(".relative ul li a.block");
+
+      const hsArrayTags = Array.from(hsTags).map((tag) =>
+        tag.textContent.trim(),
+      );
+
+      const hsFilteredTags = hsArrayTags.filter(
+        (tag) => !hsBlockTags.includes(tag),
+      );
+
+      console.log(`
+        {
+          "id"       : "${Date.now()}",
+          "xtype"    : "hentai",
+          "xsource"  : "${hsSource}",
+          "xcover"   : "",
+          "xtitle"   : "${hsTitle}",
+          "xdesc"    : "${hsDesc}",
+          "xcreator" : "${hsBrand}",
+          "xtags"    : ${JSON.stringify(hsFilteredTags)},
+        },
+    `);
+    </script>
+
+    <!-- JSON - https://rule34.xxx -->
     <script>
       const rtSource = window.location.href;
 
@@ -186,16 +228,16 @@
       const spArray = Array.from(spTags).map((tag) => tag.textContent.trim());
 
       document.querySelector(".ad_button").innerHTML = `
-            <textarea style="height:350px; width:100%; font-size:10pt">
-                {
-                    "id"      : "${Date.now()}",
-                    "source"  : "${spSource}",
-                    "creator" : "",
-                    "title"   : "${spTitle}",
-                    "tags"    : [${spArray.map((doc) => `"${doc}"`)}]
-                },
-            </textarea>
-        `;
+          <textarea style="height:350px; width:100%; font-size:10pt">
+              {
+                  "id"      : "${Date.now()}",
+                  "source"  : "${spSource}",
+                  "creator" : "",
+                  "title"   : "${spTitle}",
+                  "tags"    : [${spArray.map((doc) => `"${doc}"`)}]
+              },
+          </textarea>
+      `;
     </script>
 
     <!-- Pixiv x Cloudinary Original Size -->
@@ -581,6 +623,8 @@
       var getDescription = document
         .querySelector(".relative p.leading-tight")
         .textContent.replaceAll("\n", "");
+      console.log(getDescription);
+
       var getUploaded = document
         .querySelectorAll(".relative div div div a p.inline")[0]
         .textContent.replaceAll("|", "")
