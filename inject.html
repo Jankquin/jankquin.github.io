@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,11 +27,11 @@
       const hsTags = document.querySelectorAll(".relative ul li a.block");
 
       const hsArrayTags = Array.from(hsTags).map((tag) =>
-        tag.textContent.trim(),
+        tag.textContent.trim()
       );
 
       const hsFilteredTags = hsArrayTags.filter(
-        (tag) => !hsBlockTags.includes(tag),
+        (tag) => !hsBlockTags.includes(tag)
       );
 
       console.log(`
@@ -112,20 +112,20 @@
       const rtOpenImage = rtImage.getAttribute("poster");
 
       const rtArrayTitle1 = Array.from(rtTitle1).map((tag) =>
-        tag.textContent.trim(),
+        tag.textContent.trim()
       );
       const rtArrayTitle2 = Array.from(rtTitle2).map((tag) =>
-        tag.textContent.trim(),
+        tag.textContent.trim()
       );
       const rtArrayTags = Array.from(rtTags).map((tag) =>
-        tag.textContent.trim(),
+        tag.textContent.trim()
       );
       const rtArrayCreator = Array.from(rtCreator).map((e) =>
-        e.textContent.trim(),
+        e.textContent.trim()
       );
 
       const rtFilteredTags = rtArrayTags.filter((tag) =>
-        rtAllowTags.includes(tag),
+        rtAllowTags.includes(tag)
       );
 
       if (rtOpenImage) {
@@ -146,7 +146,12 @@
     </script>
 
     <!-- DOWNLOAD - https://cosplaytele.com -->
-    <!-- step 1  -->
+    <!-- jakankan step1-3
+    node crop image
+    cover upload ke imgpost
+    upload zip mediafire -->
+
+    <!-- step 1  get library zip -->
     <script>
       var script = document.createElement("script");
       script.src =
@@ -154,7 +159,7 @@
       document.body.appendChild(script);
     </script>
 
-    <!-- step 2  -->
+    <!-- step 2  Download bulk image.zip-->
     <script>
       (async () => {
         const zip = new JSZip();
@@ -186,7 +191,7 @@
       })();
     </script>
 
-    <!-- JSON - https://cosplaytele.com -->
+    <!-- step 3 - get data json -->
     <script>
       const ctSource = window.location.href;
       const ctTitle =
@@ -195,10 +200,10 @@
       const ctTags = document.querySelectorAll(".entry-category a");
 
       const ctArrayCreator = Array.from(ctCreator).map((e) =>
-        e.textContent.trim(),
+        e.textContent.trim()
       );
       const ctArrayTags = Array.from(ctTags).map((tag) =>
-        tag.textContent.trim(),
+        tag.textContent.trim()
       );
 
       console.log(`
@@ -222,7 +227,7 @@
       const spTitle =
         document.querySelector(".main_content_title")?.textContent.trim() || "";
       const spTags = document.querySelectorAll(
-        ".flex-col .relative .searches a",
+        ".flex-col .relative .searches a"
       );
 
       const spArray = Array.from(spTags).map((tag) => tag.textContent.trim());
@@ -243,7 +248,7 @@
     <!-- Pixiv x Cloudinary Original Size -->
     <script>
       const GetElementImages = document.querySelectorAll(
-        ".gtm-expand-full-size-illust",
+        ".gtm-expand-full-size-illust"
       );
 
       GetElementImages.forEach((link) => {
@@ -256,11 +261,11 @@
     <!-- Pixiv x Cloudinary Thumbnail -->
     <script>
       const GetElementArtist = document.querySelector(
-        ".sc-d98f2c-0.sc-cwiweh",
+        ".sc-d98f2c-0.sc-cwiweh"
       ).textContent;
       const GetElementImage = document.querySelectorAll(".sc-1qpw8k9-1.jOmqKq");
       const GetElementTitle = document.querySelector(
-        ".sc-1u8nu73-3.lfwBiP",
+        ".sc-1u8nu73-3.lfwBiP"
       ).textContent;
       const GetElementTag = document.querySelectorAll("ul.gZfuPH a");
       const GetElementCode = document.querySelector(".eStCAU");
@@ -268,11 +273,11 @@
 
       const ArrayTag = Array.from(GetElementTag);
       const ArrayImage = Array.from(GetElementImage, (img) =>
-        img.getAttribute("src").split("/").pop().replace(".jpg", ""),
+        img.getAttribute("src").split("/").pop().replace(".jpg", "")
       );
 
       const FilterTag = ArrayTag.filter(
-        (link) => !link.classList.contains("gtm-new-work-tag-event-click"),
+        (link) => !link.classList.contains("gtm-new-work-tag-event-click")
       );
       const FilterDate = GetData.toISOString();
 
@@ -282,7 +287,7 @@
       const DataImage = Array.from(
         ArrayImage,
         (doc) =>
-          `https://res.cloudinary.com/dvdute5j8/image/upload/Nsfw/${GetElementArtist}/${doc}.webp`,
+          `https://res.cloudinary.com/dvdute5j8/image/upload/Nsfw/${GetElementArtist}/${doc}.webp`
       );
 
       const NewElement = `
@@ -295,10 +300,16 @@
                         "Post"   : [
                             {
                                 "Title"     : "${GetElementTitle}",
-                                "Slug"      : "${btoa(unescape(encodeURIComponent(FilterDate)))}",
-                                "Tag"       : [${DataTag.map((doc) => `"${doc}"`)}],
+                                "Slug"      : "${btoa(
+                                  unescape(encodeURIComponent(FilterDate))
+                                )}",
+                                "Tag"       : [${DataTag.map(
+                                  (doc) => `"${doc}"`
+                                )}],
                                 "Cover"     : "${DataCover}",
-                                "Image"     : [${DataImage.map((doc) => `"${doc}"`)}],
+                                "Image"     : [${DataImage.map(
+                                  (doc) => `"${doc}"`
+                                )}],
                                 "Uploaded"  : "${FilterDate.slice(0, 10)}"
                             }
                         ]
@@ -316,10 +327,10 @@
       var getTitle = document.querySelector(".heading__title").textContent;
       var getSlug = getUrl.split("/");
       var getSeries = document.querySelector(
-        ".trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary",
+        ".trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary"
       ).textContent;
       var getTags = document.querySelectorAll(
-        ".trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary",
+        ".trailer__cols .trailer__col .btn-group .btn-group__item .btn--primary"
       );
       var blockTags = [
         "action",
@@ -403,8 +414,12 @@
                         "Slug"         : "${getSlug[getSlug.length - 2]}",
                         "Series"       : "${getSeries}",
                         "Tags"         : ${JSON.stringify(dataTags)},
-                        "Released"     : ${JSON.stringify(dataTags.find((item) => /^\d{4}$/.test(item)))},
-                        "Uploaded"     : "${new Date().toISOString().slice(0, 10)}"
+                        "Released"     : ${JSON.stringify(
+                          dataTags.find((item) => /^\d{4}$/.test(item))
+                        )},
+                        "Uploaded"     : "${new Date()
+                          .toISOString()
+                          .slice(0, 10)}"
                     },
                 </textarea>
             </div>
@@ -415,7 +430,7 @@
     <script>
       var tagHanime = window.location.href;
       var tagUrlCover = document.querySelector(
-        ".clearfix .hvpi-cover-container img",
+        ".clearfix .hvpi-cover-container img"
       ).src;
       var tagCover = document
         .querySelector(".clearfix .hvpi-cover-container img")
@@ -429,20 +444,20 @@
       var tagBrand = document.querySelectorAll(".hvpimbc-item .hvpimbc-text")[0]
         .textContent;
       var tagRelease = document.querySelectorAll(
-        ".hvpimbc-item .hvpimbc-text",
+        ".hvpimbc-item .hvpimbc-text"
       )[2].textContent;
       var tagUpload = document.querySelectorAll(
-        ".hvpimbc-item .hvpimbc-text",
+        ".hvpimbc-item .hvpimbc-text"
       )[3].textContent;
       var tagAlternative = document.querySelectorAll(
-        ".hvpimbc-item h2 .grey--text",
+        ".hvpimbc-item h2 .grey--text"
       );
       var tagTags = document.querySelectorAll(".hvpi-summary .hvpis-text a");
       var tagDescription = document.querySelectorAll(
-        ".hvpi-summary .hvpis-text .hvpist-description",
+        ".hvpi-summary .hvpis-text .hvpist-description"
       );
       var tagSeries = document.querySelectorAll(
-        "#related_content .rc-section .rcs-title strong",
+        "#related_content .rc-section .rcs-title strong"
       );
 
       var getReleaseDate = new Date(tagRelease);
@@ -457,14 +472,14 @@
       var getReleaseYear = getReleaseDate.getFullYear();
       var getReleaseMonth = String(getReleaseDate.getMonth() + 1).padStart(
         2,
-        "0",
+        "0"
       );
       var getReleaseDay = String(getReleaseDate.getDate()).padStart(2, "0");
 
       var getUploadYear = getUploadDate.getFullYear();
       var getUploadMonth = String(getUploadDate.getMonth() + 1).padStart(
         2,
-        "0",
+        "0"
       );
       var getUploadDay = String(getUploadDate.getDate()).padStart(2, "0");
 
@@ -487,18 +502,22 @@
       window.open(tagUrlCover, "_blank");
 
       document.querySelector(
-        ".htv-video-page-info .hvpi-summary .wrap",
+        ".htv-video-page-info .hvpi-summary .wrap"
       ).innerHTML = `
         <textarea style="height:450px; width:100%; font-size:10pt">
             {
                 "type"         : "hentai",
                 "hentaibar"    : "",
                 "hanime"       : "${tagHanime}",
-                "cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${tagCover[tagCover.length - 1]}.webp",
+                "cover"        : "https://res.cloudinary.com/dvdute5j8/image/upload/c_scale,w_240/Eronime/${
+                  tagCover[tagCover.length - 1]
+                }.webp",
                 "title"        : "${tagTitle}",
                 "slug"         : "${tagSlug[tagSlug.length - 1]}",
                 "series"       : "${getSeries}",
-                "description"  : "${arrayDescription.join(", ").replace(/(\n|’|")/g, "'")}",
+                "description"  : "${arrayDescription
+                  .join(", ")
+                  .replace(/(\n|’|")/g, "'")}",
                 "brand"        : "${tagBrand}",
                 "alternative"  : [${arrayAlternative.map((doc) => `"${doc}"`)}],
                 "tags"         : [${arrayTags.map((doc) => `"${doc}"`)}],
@@ -534,10 +553,10 @@
         .querySelectorAll(".series-information .info-item")[4]
         .querySelector(".info-value a").textContent;
       var getDescription1 = document.querySelectorAll(
-        ".series-summary .summary-content p",
+        ".series-summary .summary-content p"
       );
       var getPosted1 = document.querySelectorAll(
-        ".card-body .list-chapters a .chapter-time",
+        ".card-body .list-chapters a .chapter-time"
       );
 
       var getTags2 = [];
@@ -560,7 +579,7 @@
       }
 
       document.querySelector(
-        ".bottom-part .row .col-12 .statistic-list",
+        ".bottom-part .row .col-12 .statistic-list"
       ).innerHTML = `
         <textarea style="height:350px; width:100%; font-size:10pt">
             {
@@ -569,7 +588,9 @@
                 "cover"        : "${getCover3}",
                 "title"        : "${getTitle1}",
                 "slug"         : "${getSlug1}",
-                "description"  : "${getDescription2.join(", ").replace(/(\n|’|")/g, "'")}",
+                "description"  : "${getDescription2
+                  .join(", ")
+                  .replace(/(\n|’|")/g, "'")}",
                 "author"       : "${getAuthor1}",
                 "tags"         : [${getTags2.map((doc) => `"${doc}"`)}],
                 "posted"       : "${getPosted2}",
@@ -611,7 +632,7 @@
         .textContent.replaceAll("\n", "");
       var getSlug = window.location.href.split("/").pop();
       var getSeries = document.querySelector(
-        ".relative div div h1 a.break-words",
+        ".relative div div h1 a.break-words"
       ).textContent;
       var getAlternative = document
         .querySelector(".relative div div div h2.inline")
@@ -649,7 +670,9 @@
                 "slug"         : "${getSlug}",
                 "series"       : "${getSeries}",
                 "alternative"  : "${getAlternative}",
-                "tags"         : [${arrayTags.map((doc) => `"${doc.replaceAll("\n", "")}"`)}],
+                "tags"         : [${arrayTags.map(
+                  (doc) => `"${doc.replaceAll("\n", "")}"`
+                )}],
                 "brand"        : "${getBrand}",
                 "description"  : "${getDescription}",
                 "view"         : "${Math.floor(Math.random() * 100) + 1}",
@@ -669,13 +692,13 @@
         .textContent.replace("Icon Pack: ", "")
         .replaceAll(/\s+/g, "");
       var getIcon = document.querySelectorAll(
-        ".icons .icon--item .icon--holder a img",
+        ".icons .icon--item .icon--holder a img"
       );
       var arrayIcon = Array.from(getIcon, (img) =>
-        img.getAttribute("src").replace("128", "512"),
+        img.getAttribute("src").replace("128", "512")
       );
       var arrayTitle = Array.from(getIcon, (title) =>
-        title.getAttribute("title").replace(" icon", ""),
+        title.getAttribute("title").replace(" icon", "")
       );
 
       document.querySelector(".search-pack-result").innerHTML = `
