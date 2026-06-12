@@ -1,5 +1,127 @@
 [
   {
+    "id": "1781236403069",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/bus/#gallery-1",
+    "xcover": "https://i.postimg.cc/sDrjmG2h/1781236403069.jpg",
+    "xtitle": "Chunmomo - Bus",
+    "xdesc": "130",
+    "xcreator": ["Chunmomo"],
+    "xtags": ["Cosplay Free Style", "Cosplay Nude"],
+    "xdownload": "https://www.mediafire.com/file/con2z93xdz64qb0/1781236403069.zip/file"
+  },
+  {
+    "id": "1781236198308",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/rem-2/#gallery-31",
+    "xcover": "https://i.postimg.cc/nr6HfM4d/1781236198308.jpg",
+    "xtitle": "Chunmomo cosplay Rem - Re:Zero",
+    "xdesc": "33",
+    "xcreator": ["Chunmomo"],
+    "xtags": ["Cosplay Anime/Manga", "Cosplay Nude", "Rem", "Re:Zero"],
+    "xdownload": "https://www.mediafire.com/file/zzjk6jgl0hiemqp/1781236198308.zip/file"
+  },
+  {
+    "id": "1781234997381",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/yoimiya-2/",
+    "xcover": "https://i.postimg.cc/tg09M1q4/1781234997381.jpg",
+    "xtitle": "Chengzimiaoj cosplay Yoimiya - Genshin Impact",
+    "xdesc": "23",
+    "xcreator": ["Chengzimiaoj"],
+    "xtags": ["Cosplay Game", "Cosplay Nude", "Yoimiya", "Genshin Impact"],
+    "xdownload": "https://www.mediafire.com/file/9sz60l0af9mhilu/1781234997381.zip/file"
+  },
+  {
+    "id": "1781234783134",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/2b-2/#gallery-10",
+    "xcover": "https://i.postimg.cc/y6h3XHTD/1781234783134.jpg",
+    "xtitle": "Chengzimiaoj cosplay 2B - Nier:Automata",
+    "xdesc": "19",
+    "xcreator": ["Chengzimiaoj"],
+    "xtags": ["Cosplay Game", "Cosplay Nude", "2B", "Nier:Automata"],
+    "xdownload": "https://www.mediafire.com/file/q0a1pppcx456jom/1781234783134.zip/file"
+  },
+  {
+    "id": "1781234595103",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/inori-yuzuriha-2/",
+    "xcover": "https://i.postimg.cc/bJsLSvnM/1781234595103.jpg",
+    "xtitle": "Chengzimiaoj cosplay Inori Yuzuriha - Guilty Crown",
+    "xdesc": "25",
+    "xcreator": ["Chengzimiaoj"],
+    "xtags": [
+      "Cosplay Anime/Manga",
+      "Cosplay Nude",
+      "Inori Yuzuriha",
+      "Guilty Crown"
+    ],
+    "xdownload": "https://www.mediafire.com/file/1fpe7a2uexmao8n/1781234595103.zip/file"
+  },
+  {
+    "id": "1781234424310",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/emilia/",
+    "xcover": "https://i.postimg.cc/28PGbmjb/1781234424310.jpg",
+    "xtitle": "Chengzimiaoj cosplay Emilia - Re:Zero",
+    "xdesc": "12",
+    "xcreator": ["Chengzimiaoj"],
+    "xtags": ["Cosplay Anime/Manga", "Cosplay Nude", "Emilia", "Re:Zero"],
+    "xdownload": "https://www.mediafire.com/file/aesbq2xrs4ak5xp/1781234424310.zip/file"
+  },
+
+  {
+    "id": "1781234013510",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/mai-sakurajima/#gallery-17",
+    "xcover": "https://i.postimg.cc/Bnz01jLT/1781234013510.jpg",
+    "xtitle": "Chengzimiaoj cosplay Mai Sakurajima - Seishun Buta Yaro",
+    "xdesc": "24",
+    "xcreator": ["Chengzimiaoj"],
+    "xtags": ["Seishun Buta Yaro", "Cosplay Anime/Manga", "Cosplay Nude"],
+    "xdownload": "https://www.mediafire.com/file/hcljp7912l0b58i/1781234013510.zip/file"
+  },
+
+  {
+    "id": "1781219991945",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/zara/#gallery-32",
+    "xcover": "https://i.postimg.cc/pVzb07fb/1781219991945.jpg",
+    "xtitle": "Arty Huang cosplay Zara - Azur Lane",
+    "xdesc": "32",
+    "xcreator": ["Arty Huang"],
+    "xtags": ["Cosplay Game", "Cosplay Nude", "Zara", "Azur Lane"],
+    "xdownload": "https://www.mediafire.com/file/p7jv2mxv2rja3hc/1781219991945.zip/file"
+  },
+  {
+    "id": "1781219746165",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/rangiku-matsumoto/#gallery-37",
+    "xcover": "https://i.postimg.cc/XY3VcWtn/1781219746165.jpg",
+    "xtitle": "Byoru cosplay Rangiku Matsumoto - Bleach",
+    "xdesc": "37",
+    "xcreator": ["Byoru"],
+    "xtags": [
+      "Cosplay Anime/Manga",
+      "Cosplay Nude",
+      "Rangiku Matsumoto",
+      "Bleach"
+    ],
+    "xdownload": "https://www.mediafire.com/file/sxg84w1ov26jhxp/1781219746165.zip/file"
+  },
+  {
+    "id": "1781219172509",
+    "xtype": "images",
+    "xsource": "https://cosplaytele.com/st-louis/",
+    "xcover": "https://i.postimg.cc/ZRm0W3Z9/1781219172509.jpg",
+    "xtitle": "Arty Huang cosplay St Louis - Azur Lane",
+    "xdesc": "28",
+    "xcreator": ["Arty Huang"],
+    "xtags": ["Cosplay Game", "Cosplay Nude", "St Louis", "Azur Lane"],
+    "xdownload": "https://www.mediafire.com/file/le9rm0lscs0achn/1781219172509.zip/file"
+  },
+  {
     "id": "1781185287601",
     "xtype": "images",
     "xsource": "https://cosplaytele.com/purple-bunny/",
