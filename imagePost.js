@@ -11,8 +11,5 @@ const allImages = Array.from(ctTags)
 const [xcover, ...xtags] = allImages;
 
 console.log(`
-
-          "xcover"   : "${xcover || ""}",
-          "xtags"    : ${JSON.stringify(xtags)},
-
-  `);
+    "xcover"    : ${JSON.stringify(allImages)},
+`);
