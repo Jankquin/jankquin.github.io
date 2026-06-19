@@ -56,9 +56,9 @@ const ctTags = document.querySelectorAll(".entry-category a");
 
 const ctArrayCreator = Array.from(ctCreator).map((e) => e.textContent.trim());
 const ctArrayTags = Array.from(ctTags).map((tag) => tag.textContent.trim());
-const ctArrayCover = Array.from(
-  { length: 6 },
-  (_, i) => `${ctId} (${i + 1}).webp`
+const ctArrayPreview = Array.from(
+  { length: 5 },
+  (_, i) => `${ctId} (${i + 2}).webp`
 );
 
 const ctDesc = Number(ctTitle.match(/\d+/)?.[0] ?? 0);
@@ -68,7 +68,8 @@ console.log(`
         "id"       : "${ctId}",
         "xtype"    : "images",
         "xsource"  : "${ctSource}",
-        "xcover"   : ${JSON.stringify(ctArrayCover)},
+        "xcover"   : "${ctId} (1).webp",
+        "xpreview":  ${JSON.stringify(ctArrayPreview)},
         "xtitle"   : "${ctTitle}",
         "xdesc"    : "${ctDesc}",
         "xcreator" : ${JSON.stringify(ctArrayCreator)},
