@@ -18,12 +18,12 @@ console.log(ximages);
 
 console.log(`
     {
-        "id"       : "${cupId}",
+        "id"       : ${cupId},
         "xtype"    : "images",
         "xsource"  : "${cupSource}",
         "xcover"   : "${cupId} (1).webp",
         "xtitle"   : "${cupTitle}",
-        "xdesc"    : "${ximages.length}",
+        "xdesc"    : ${ximages.length},
         "xmodel"   : [""],
         "xtags"    : ${JSON.stringify(cupArrayTags)},
         "xdownload": ""

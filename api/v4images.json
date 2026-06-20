@@ -1,13 +1,13 @@
 [
   {
-    "id": "1781767620703",
+    "id": 1781767620703,
     "xtype": "images",
     "xsource": "https://cup2d.com/cosertiny-asa-psylocke/",
     "xcover": "1781767620703 (1).webp",
     "xtitle": "Tiny Asa - Psylocke",
-    "xdesc": "80",
+    "xdesc": 80,
     "xcreator": ["Tiny Asa"],
-    "xtags": ["Cosplay", "Jumpsuit", "Nude", "Psylocke"],
+    "xtags": ["Cosplay Anime/Manga", "Jumpsuit", "Cosplay Nude", "Psylocke"],
     "xdownload": ""
   },
   {
@@ -18,7 +18,7 @@
     "xtitle": "Tiny Asa - Helm",
     "xdesc": "81",
     "xcreator": ["Tiny Asa"],
-    "xtags": ["Cosplay", "Helm", "Lingerie", "Nikke", "Nude"],
+    "xtags": ["Helm", "Lingerie", "Nikke", "Cosplay Nude", "Cosplay Game"],
     "xdownload": ""
   },
   {
@@ -29,7 +29,7 @@
     "xtitle": "Tiny Asa - Grok Asa",
     "xdesc": "37",
     "xcreator": ["Tiny Asa"],
-    "xtags": ["Cosplay", "Grok", "Lingerie", "Nude"],
+    "xtags": ["Grok", "Lingerie", "Cosplay Nude"],
     "xdownload": ""
   },
   {
